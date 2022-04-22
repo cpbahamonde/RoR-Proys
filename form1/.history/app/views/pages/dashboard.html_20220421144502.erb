@@ -1,0 +1,15 @@
+<table class="table">
+    <tr>
+    <th>Email</th>
+    <th>Edad</th>
+    <th>Comentario</th>
+    </tr>
+    <% @users.each do |user| %>
+        <tr>
+        <th><%= user.email %> </th>
+        <th>
+        <th><%= user.age %> </th>
+        <th><%= user.comment %> </th>
+        </tr>
+    <% end %>
+    </table>

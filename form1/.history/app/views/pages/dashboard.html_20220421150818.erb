@@ -1,0 +1,23 @@
+
+
+<table class="table" width="50%" bordercolor="#000000" align="center" style= (border:1)>
+<caption align="bottom" >Usuarios</caption>
+
+</nav>
+    <tr>
+    <th>Email</th>
+    <th></th>
+    <th>Edad</th>
+    <th></th>
+    <th>Comentario</th>
+    </tr>
+    <% @users.each do |user| %>
+        <tr>
+            <td><%= user.email %> </td>
+            <td></td>
+            <td><%= user.age %> </td>
+            <td></td>
+            <td><%= user.comment %> </td>
+        </tr>
+    <% end %>
+    </table>
