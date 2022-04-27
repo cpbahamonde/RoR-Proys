@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get 'say-hello', to: 'greetings#say_hello'
 
   # Defines the root path route ("/")
-  root "greetings#say_hello"
+  root "articles#index"
 end
