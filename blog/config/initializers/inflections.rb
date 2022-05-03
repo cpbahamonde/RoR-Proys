@@ -14,9 +14,3 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym "RESTful"
 # end
-
-ActiveSupport::Inflector.inflections(:en) do |inflect|
-   inflect.irregular 'posteo', 'posteos'
-   inflect.irregular 'error', 'errores'
-   inflect.irregular 'impide', "impiden"
-  end
