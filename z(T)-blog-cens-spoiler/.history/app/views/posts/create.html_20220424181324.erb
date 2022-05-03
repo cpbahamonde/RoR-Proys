@@ -1,0 +1,22 @@
+
+<% if @post.errors.any? %>
+    <div id="error_explanation">
+        <h2>
+        
+        <%= pluralize(@post.errors.count, "error") %>
+            impide(n) 
+            <%= @post.errors.count > 1 ? "impide".pluralize : "impide" %> que el registro sea agregado:
+        </h2>
+        <ul style="list-style: none;">
+            <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% else %>
+        <h1>Post Creado Correctamente</h1>
+<% end %>
+
+<%= @estadistica.errors.count > 1 ? "prohibio".pluralize : "prohibio" %> esta temperatura de ser guardada:</h2>
+
+

@@ -1,0 +1,47 @@
+<h1>Posts</h1>
+<p>Ingrese Nuevo Post</p>
+ <br><br>
+
+<form method="get" action="posts/create">
+    <div class="form-group">
+        <label for="title">Titulo del Post</label>
+        <br>
+        <input name="title" type="text" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Ingrese titulo del post">
+        <br><br>
+    </div>
+
+    <div class="form-group">
+        <label for="image_url">URL de Imagen</label>
+        <br>
+        <input name="image_url" type="url" class="form-control" id="image_url" aria-describedby="titleHelp" placeholder="https://site.com/image.jpg">
+        <br><br>
+    </div>
+
+    <div class="form-group">
+        <label for="content">Contenido</label>
+        <br>
+        <textarea name="content" class="form-control"> </textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+<br><br>
+
+
+<table class="table" bordercolor="#0" align=center  border=10 cellspacing=0 > 
+    <caption align="bottom">Posts Ingresados</caption>
+    <h1><span max-widgstyle= "background-color: green;color:blue">Posts Ingresados</span></h1>
+        <th>Titulo</th> <th>Contenido</th>  <th>URL Imagen</th>   <th>Fecha</th>
+    </tr>
+    <% @posts.each do |post| %>
+        <tr>
+            <td style="width: 25%;"><%= post.title %> </td>
+            <td style="width: 25%;"><%= post.content %> </td> 
+            <td style="width: 25%;"><%= post.image_url %> </td> 
+            <td style="width: 25%;"><%= post.created_at %> </td>
+        </tr>
+    <% end %>
+</table>
+
+

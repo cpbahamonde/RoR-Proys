@@ -1,0 +1,21 @@
+    <% if @proy.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+                <%= pluralize(@proy.errors.count, "") %>
+                <%= @proy.errors.count > 1 ? 
+                "errores impiden": "error impide" %> que el Proyecto sea agregado:
+            </h2>
+        
+            <ul style="list-style: none;">
+                <% @proy.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+
+            </ul>
+        </div>
+
+        <% else %>
+            <h1>Proyecto Creado Correctamente</h1>
+    <% end %>
+
+    <%= button_to "Volver", proys_hist_url, :method => "get" %>
