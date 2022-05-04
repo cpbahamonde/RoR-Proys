@@ -1,0 +1,36 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="container-fluid ">
+        <%= link_to 'Gestor de Proyectos', root_path, class: 'nav-link' %>
+        <button class="navbar-toggler btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav v-align-middle text-center  ">
+            <a class="nav-link border border-light rounded-pill active text-light" aria-current="page" href="/proys/crear"> Crear Proyecto </a>
+            
+            <a class="nav-link border border-light rounded-pill text-light" href="/proys/hist">Historial Proyectos</a>
+        </div>
+    </div>
+
+
+    <nav class="navbar text-white justify-content-between" id="/proys/hist" href="/proys/hist" >
+     
+        <form class="form-inline bg-gradient text-white " id="/proys/hist" href="/proys/hist" >
+                <select class="form-control bg-info text-white" name="estado" id="estado" type="search" >
+                    <option disabled selected value=null > Estado </option>
+                    <option value="Propuesta"> Propuesta </option>
+                    <option value="Agendado"> Agendado </option> 
+                    <option value="En Progreso"> En Progreso </option> 
+                    <option value="Terminado"> Terminado </option> 
+                </select>
+              <% render proys_hist  
+            <a href="/proys/hist"><button type="submit" class="btn btn-outline-success my-2 my-sm-0">Buscar</button></a>
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location='/proys/hist'" type="submit">Buscar</button> -->
+        </form>
+
+    </nav>
+
+</nav>
