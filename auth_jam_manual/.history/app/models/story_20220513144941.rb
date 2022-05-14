@@ -1,0 +1,3 @@
+class Story < ApplicationRecord
+    belongs_to :object, class_name: "object", foreign_key: "object_id"
+end

@@ -8,7 +8,6 @@ rails new gest-proy
 
 $
 cd gest-proy/
-cd..
 bundle install
 << rails new gest-proy --css=bootstrap --force >>
 
