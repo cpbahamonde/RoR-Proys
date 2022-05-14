@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Products</h1>
+<div class="col-10 d-flex justify-content-end w-100">
+        <%= search_form_for @q do |f|%>
+            <%= f.label :t_schedule%>
+            <%= f.search_field :t_schedule_eq%>
+            <%= f.submit "Buscar", class:"btn btn-boz"%>
+        <%end%>
+    </div>
+<div class="row justify-content" id="products">
+    <%= paginate(@products) %>
+    <% @products.each do |product| %>
+    <div class="card col-3 mx-2 my-4">
+      <%= render product %>
+      <p>
+      <%= link_to "Show this product", product,class:"lk-boz" %>
+      </p>
+    </div>
+  <% end %>
+  <%= paginate(@products) %>
+</div>
+
+<%= link_to "New product", new_product_path,class:"lk-boz"%>

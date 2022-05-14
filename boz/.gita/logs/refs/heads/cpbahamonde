@@ -1,0 +1,7 @@
+0000000000000000000000000000000000000000 28c7ec1f2bf3e03feb2a3c4237a4d02602dd6310 CLAUDIO BAHAMONDE <cpbahamonde@gmail.com> 1652315897 -0400	branch: Created from master
+28c7ec1f2bf3e03feb2a3c4237a4d02602dd6310 209247803f1725af99998aafd6b857d9994fafc1 CLAUDIO BAHAMONDE <cpbahamonde@gmail.com> 1652316770 -0400	commit: modifica Gemfile
+209247803f1725af99998aafd6b857d9994fafc1 d0984abd303c6b0fca7194b4111495b08ae2ee10 CLAUDIO BAHAMONDE <cpbahamonde@gmail.com> 1652317233 -0400	commit: Add file config/locales/es.yml
+d0984abd303c6b0fca7194b4111495b08ae2ee10 d21545f12041e1334d5dd3a7f528487a05b7f433 CLAUDIO BAHAMONDE <cpbahamonde@gmail.com> 1652317381 -0400	commit: Add file db/seeds.rb
+d21545f12041e1334d5dd3a7f528487a05b7f433 e57160c70c762c1932a2416f645f167ed5b24659 CLAUDIO BAHAMONDE <cpbahamonde@gmail.com> 1652317694 -0400	commit: Modif file config/database.yml
+e57160c70c762c1932a2416f645f167ed5b24659 510eac57cec66fe1f4e535384c511e79ab71bb97 CLAUDIO BAHAMONDE <cpbahamonde@gmail.com> 1652318632 -0400	commit: Modif file app/assets/stylesheets/application.css
+510eac57cec66fe1f4e535384c511e79ab71bb97 883b873c74c29678616accccd7246ea4345b292b CLAUDIO BAHAMONDE <cpbahamonde@gmail.com> 1652319208 -0400	pull: Fast-forward

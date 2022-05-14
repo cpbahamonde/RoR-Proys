@@ -1,0 +1,14 @@
+Hito 1
+P1 y  P2
+Carpeta trello
+	Historias en pdf to-do
+	Los pdf son exportaciones de trello
+P3 Modelo
+Carpeta Img Modelo Boz
+	1.-Se creo un  mapa conceptual basandonos en las primeras historias surgidas y  funcionalidades
+	2.- Basandonos en el anterior se creo el primer modelo físico
+	3.-El modelo fisico rev (último momentaneamente)  se corrigieron errores en el modelo anterior y se agregaron funciones basandonos en nuevas historias surgidas
+
+	Revisar "Físico rev 1"
+P4 
+Pdf vistas
