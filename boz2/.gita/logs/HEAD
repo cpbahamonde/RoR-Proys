@@ -1,5 +1,0 @@
-0000000000000000000000000000000000000000 8819ef5f56e8a87fccfc928895483bafb3683ee4 CLAUDIO BAHAMONDE <cpbahamonde@gmail.com> 1652476949 -0400	clone: from https://github.com/SoulOppen/boz2.git
-8819ef5f56e8a87fccfc928895483bafb3683ee4 3343a625e709628cb3bb9c9c62dc90580e3b3c3b CLAUDIO BAHAMONDE <cpbahamonde@gmail.com> 1652477227 -0400	commit: Mod file config/application.rb - Add lines [22..29]
-3343a625e709628cb3bb9c9c62dc90580e3b3c3b 545762347b1abf47d9132980a1c9153fae8c8838 CLAUDIO BAHAMONDE <cpbahamonde@gmail.com> 1652477451 -0400	commit: Mod file db/seeds.rb - Full
-545762347b1abf47d9132980a1c9153fae8c8838 63fd3873d61700736f36ef58d776e82f601e87c8 CLAUDIO BAHAMONDE <cpbahamonde@gmail.com> 1652477827 -0400	commit: Mod file config/locales/es.yml - Mod lines [5..14]
-63fd3873d61700736f36ef58d776e82f601e87c8 cfed8f6d82785cec7eeee869b26a0ff7b4455b8d CLAUDIO BAHAMONDE <cpbahamonde@gmail.com> 1652478121 -0400	commit: Add Dir app/views/kaminari/*
