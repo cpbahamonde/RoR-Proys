@@ -1,0 +1,48 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="row">
+    
+    <div class="col-11 d-flex justify-content-start ">
+      <h4>CONCIERTOS</h4>
+    </div>
+
+    <%= link_to "Crear Concierto", new_concert_path, class:"btn  btn-sm btn-outline-success justify-content-end col-1 align-content-center "%>
+</div>
+
+<br>
+<hr max_width=100%  size=5   noshade="noshade">
+<br>
+
+  <div id="concerts">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr th class="align-middle text-center text-decoration-none"> 
+                <th scope="col"> Grupo</th>
+                <th scope="col"> Asistentes</th>
+                <th scope="col"> Duracion</th>
+                <th scope="col"> Ubicacion</th>
+                <th scope="col"> Fecha</th>
+            </tr>
+        </thead>
+        <tbody class="text-decoration-none" >
+            <% @concerts.each do |concert| %>
+                <tr>    
+                    <td class="align-middle" ><%= concert.group_name %></td>
+                    <td class="align-middle" ><%= concert.attendance %> Personas</td>
+                    <td class="align-middle" ><%= concert.duration %> Horas</td>
+                    <td class="align-middle" ><%= concert.place %></td>
+                    <td class="align-middle" ><%= l concert.date, format: "%d-%b-%Y" %></td>
+
+                    <td class="align-middle">
+                        <%= link_to "Mostrar Concierto", concert %>
+                    </td>
+                    <td class="align-middle">
+<div class="p-2"><%= button_to "Volver a Conciertos", concerts_path, method: :get %></div>
+                    </td>
+
+                </tr>
+            <% end %>
+        </tbody>
+      </table>
+  </div>
+

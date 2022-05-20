@@ -52,3 +52,7 @@ p{
     color: var(--d-color4);
     font-style:italic;
 }  
+.sz{
+    height: 150px;
+    width: 100px; 
+}

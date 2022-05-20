@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<%= link_to "New group", new_group_path %>
+<h1>Groups</h1>
+
+<div class="row">
+    
+    <div class="col-10 d-flex justify-content-end ">
+
+       
+
+            <%= search_form_for @q do |f|%>
+                <%= f.label :t_schedule%>
+                <%= f.search_field :t_schedule_eq%>
+                <%= f.submit "Buscar", class:"btn btn-boz"%>
+            <%end%>
+    </div>
+
+    <%= link_to "New product", new_product_path, class:"btn btn-boz  justify-content-start col-2 "%>
+</div>
+
+
+<div id="groups">
+  <% @groups.each do |group| %>
+    <%= render group %>
+    <p>
+      <%= link_to "Show this group", group %>
+    </p>
+  <% end %>
+</div>
+
+

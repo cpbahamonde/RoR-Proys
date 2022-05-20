@@ -1,37 +1,34 @@
 <div  id="<%= dom_id product %>" >
+  <div>
+    <%=image_tag product.img_url, class:"sz"%>
+  </div>
+  <div class="card-body">
   <p>
-    <strong>Name:</strong>
+    <strong>Nombre:</strong>
     <%= product.name %>
   </p>
 
   <p>
-    <strong>Desciption:</strong>
+    <strong>Descripcion:</strong>
     <%= product.desciption %>
   </p>
 
   <p>
-    <strong>Price:</strong>
-    <%= product.price %>
+    <strong>Precio:</strong>
+      <%= number_to_currency(product.price, unit: "$ ", separator: ",", delimiter: ".", format: " %u %n") %>
   </p>
 
   <p>
-    <strong>Cost:</strong>
-    <%= product.cost %>
+    <strong>Costo:</strong>
+    <%= number_to_currency(product.cost, unit: "$ ", separator: ",", delimiter: ".", format: " %u %n") %>
   </p>
 
   <p>
-    <strong>T schedule:</strong>
-    <%= product.t_schedule %>
+    <strong>Agenda: </strong><%= product.t_schedule %> Dias 
   </p>
 
   <p>
-    <strong>Stock:</strong>
-    <%= product.stock %>
+    <strong>Stock: </strong><%= product.stock %> Unidad(es)
   </p>
-
-  <p>
-    <strong>Img url:</strong>
-    <%= product.img_url %>
-  </p>
-
+  </div>
 </div>

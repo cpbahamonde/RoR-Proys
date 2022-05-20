@@ -7,23 +7,23 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Ejecutar 'rails db:reset'
+
 require 'faker'
 puts "Poblando Datos..."
 
-10.times do
+45.times do
 
 	name = ""
-	cost = Faker::Commerce.price
-	price = cost * 0.5
+	cost = Faker::Commerce.price * 1000
+	price = cost * 2
 	
 	products = Product.create(
 		name: Faker::Commerce.product_name ,
-		desciption: Faker::Lorem.sentence(1),
-		cost: cost,
+		desciption: Faker::Lorem.sentences(number: 2),
 		price: price,
+		cost: cost,
 		t_schedule: rand(2..6),
 		stock: rand(1..10),
 		img_url: "https://loremflickr.com/#{rand(50..200)}/#{rand(50..200)}/all"
   	)
 end
-

@@ -1,0 +1,10 @@
+<h1>Nuevo Concierto</h1>
+
+<%= render "form", concert: @concert %>
+
+<br>
+
+<div>
+  <%= link_to "Volver a Conciertos", concerts_path %>
+  <div class="p-2"><%= button_to "Volver a Conciertos", concerts_path, method: :get %></div>
+</div>

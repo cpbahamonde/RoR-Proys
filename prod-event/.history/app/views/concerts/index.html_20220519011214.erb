@@ -1,0 +1,58 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Concerts</h1>
+<%= link_to "New concert", new_concert_path %>
+
+<div id="concerts">
+  <% @concerts.each do |concert| %>
+
+     <table class="table table-striped table-bordered table-hover text-white text-decoration-none">
+            <thead>
+                <tr th class="align-middle text-center text-decoration-none"> 
+                    <th scope="col"> Grupo</th>
+                    <th scope="col"> Asistentes</th>
+                    <th scope="col"> Duracion</th>
+                    <th scope="col"> Ubicacion</th>
+                    <th scope="col"> Fecha</th>
+                </tr>
+            </thead>
+            <tbody class="text-decoration-none" >
+                <% @libros.each do |libro| %>
+                    <tr>    
+                        <td class="align-middle" ><%= concert.group_name %></td>
+                        <td class="align-middle" ><%= concert.attendance %></td>
+                        <td class="align-middle" ><%= concert.duration %></td>
+                        <td class="align-middle" ><%= concert.place %></td>
+                        <td class="align-middle" ><%= concert.date %></td>
+ 
+                        <td class="align-middle text-decoration-none ">
+                            <%= link_to "Show this concert", concert %>
+                        </td>
+                        <td class="align-middle">
+  <%= link_to "Edit this concert", edit_concert_path(@concert) %> 
+                        </td>
+
+                        <td class="align-middle">
+    
+                                <!-- Protección CSRF -->
+                                <%= token_tag nil %> 
+    
+  <%= button_to "Destroy this concert", @concert, 
+
+                         </td>
+
+                    </tr>
+                    <% end %>
+            </tbody>
+    </table>
+
+
+
+    <p>
+      <%= link_to "Show this concert", concert %>
+    </p>
+  <% end %>
+</div>
+
+  <%= link_to "Back to concerts", concerts_path %>
+

@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_10_143944) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
-    t.integer "crew"
+    t.integer "q_crew"
     t.date "debut_date"
     t.string "group_type"
     t.datetime "created_at", null: false
