@@ -1,0 +1,51 @@
+<p style="color: green"><%= notice %></p>
+
+
+        <div class="card border-success mb-3 card h-100 w-100" >
+          <div class="card-header bg-transparent border-success">
+              <h2><strong><%= @group.name %></strong></h2>
+          </div>
+          <div class="card-body text-success">
+            <h5 class="card-title"><strong>Debut: <%= @group.debut_date %></strong></h5>
+            <p class="card-text">
+            
+              <p><strong>Integrantes: <%= @group.crew %></strong></p>
+              <p><strong>Tipo Grupo:  <%= @group.group_type %></strong></p>
+                <td>
+                    <ul>
+                      Total Conciertos: <%= @group.q_concert %>
+                      <% @group.concerts.each do |concert| %>
+                        <li> <%= concert.place %> => <%= localize concert.date , format: "%d-%b-%Y" %> Duracion <%= concert.duration %> Hora(s) => <%= concert.attendance %> personas </li>
+                      <%end%>
+                    </ul>
+                </td>          
+              </td> 
+            </p>
+          </div>
+          <div class="card-footer bg-transparent border-success">
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Cant Conciertos de este mes </th>
+                  <th scope="col">Fecha Ultimo Concierto</th>
+                  <th scope="col">Mayor Asistencia en un Concierto</th>
+                  <th scope="col">Duracion Maxima de un Concierto</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= @group.concert_this_month %></td>
+                  <td><%= @group.last_concert %></td>
+                  <td><%= @group.max_attendance %> personas</td>
+                  <td><%= @group.max_duration %> Horas</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+<div>
+  <%= link_to "Editar Grupo", edit_group_path(@group) %> |
+  <%= link_to "Volver a Grupos", groups_path %>
+
+  <%= button_to "Eliminar Grupo", @group, method: :delete %>
+</div>

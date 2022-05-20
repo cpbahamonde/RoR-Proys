@@ -1,0 +1,45 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tags</h1>
+
+<div id="tags">
+  <% @tags.each do |tag| %>
+    <%= render tag %>
+    <p>
+      <%= link_to "Show this tag", tag %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New tag", new_tag_path %>
+
+
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Tags</h1>
+
+<div class="table-responsive" id="posts">
+  <table  class="table table-success table-striped table-hover table-primary table-bordered table-sm align-middle">
+    <thead class="text-center">
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tags.each do |tag| %>
+        <tr>
+          <td><%= tag.id %></td>
+          <td><%= tag.title %></td>
+          <td class="text-center"><%= link_to 'Edit', edit_tag_path(post) %></td>
+          <td class="text-center"><%= link_to 'Destroy', post, method: :delete, data: {confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>
+
+  <button type="button" class="btn btn-outline-info text-white text-decoration-none" ><<%= link_to "New tag", new_tag_path %></button>

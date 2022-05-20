@@ -1,0 +1,33 @@
+<div id="<%= dom_id group %>">
+  <p>
+    <strong>Name:</strong>
+    <%= group.name %>
+  </p>
+
+  <p>
+    <strong>Crew:</strong>
+    <%= group.crew %>
+  </p>
+
+  <p>
+    <strong>Debut date:</strong>
+    <%= group.debut_date %>
+  </p>
+
+  <p>
+    <strong>Group:</strong>
+    <%= group.group_type %>
+  </p>
+
+<th>Concerts: </th>
+<td>
+  <ul>
+  Cantidad: <% group.q_concerts %>%
+        <% group.concerts.each do |concert| %>
+        <li> <%= concert.place %></li>
+
+        <%end%>
+  </ul>
+</td>
+
+</div>

@@ -1,0 +1,37 @@
+<p style="color: green"><%= notice %></p>
+
+
+
+<div class="row">
+    
+    <div class="col-10 d-flex justify-content-start ">
+      <h1>Grupos</h1>
+    </div>
+
+    <%= link_to "Crear grupo", new_group_path, class:"btn  btn-sm btn-outline-success justify-content-end col-2 "%>
+</div>
+
+
+<div id="groups">
+  <% @groups.each do |group| %>
+    <%= render group %>
+    <p>
+      <%= link_to "Show this group", group %>
+    </p>
+  <% end %>
+</div>
+
+
+
+<div id="groups" class="card border-success mb-3" style="max-width: 18rem;">
+
+  <div class="card-header bg-transparent border-success">Header</div>
+  <div class="card-body text-success">
+    <h5 class="card-title">Success card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <div class="card-footer bg-transparent border-success">Footer</div>
+
+
+</div>
+

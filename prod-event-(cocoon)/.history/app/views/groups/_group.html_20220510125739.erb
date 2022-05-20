@@ -1,0 +1,68 @@
+<div id="<%= dom_id group %>">
+  <p>
+    <strong>Name:</strong>
+    <%= group.name %>
+  </p>
+
+  <p>
+    <strong>Crew:</strong>
+    <%= group.crew %>
+  </p>
+
+  <p>
+    <strong>Debut date:</strong>
+    <%= group.debut_date %>
+  </p>
+
+  <p>
+    <strong>Group:</strong>
+    <%= group.group_type %>
+  </p>
+
+<th>Concerts: </th>
+ 
+<td>
+
+  <ul>
+ 
+ Cantidad: <%= group.q_concert %>
+        <% group.concerts.each do |concert| %>
+          <li> <%= concert.place %>, personas => <%= concert.attendance %>  </li>
+        <%end%>
+  </ul>
+</td>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Concierto este mes</th>
+      <th scope="col">Ultimo Concierto</th>
+      <th scope="col">Asistencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= group.concert_this_month %></td>
+      <td><%= group.last_concert %></td>
+      <td><%= group.max_attendance %></td>
+      <td><%= group.max_duration %></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>

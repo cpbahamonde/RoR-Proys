@@ -1,0 +1,16 @@
+<h1>Editar Grupo</h1>
+
+<%= render "form", group: @group %>
+
+<br>
+
+<div>
+  <%= link_to "Mostrar este Grupo", @group %> |
+  <%= link_to "Volver a Grupos", groups_path %>
+</div>
+
+  <div class="d-flex flex-row  justify-content-around">
+    <div class="p-2"><%= link_to "Mostrar este Grupo", @group %> , method: :get  %>  </div>
+    <div class="p-2"><%= button_to "Volver a Grupos", groups_path, method: :get %></div>
+    <div class="p-2"><%= button_to "Eliminar Grupo", @group, method: :delete %></div>
+  </div>

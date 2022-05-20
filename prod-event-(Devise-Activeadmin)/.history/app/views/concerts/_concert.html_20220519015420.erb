@@ -1,0 +1,28 @@
+<div id="<%= dom_id concert %>">
+
+  <p>
+    <strong>Grupo:</strong>
+    <%= concert.group_name %>
+  </p>
+
+  <p>
+    <strong>Asistentes:</strong>
+    <%= concert.attendance %> Personas
+  </p>
+
+  <p>
+    <strong>Duracion:</strong>
+    <%= concert.duration %> 
+  </p>
+
+  <p>
+    <strong>Ubicacion:</strong>
+    <%= concert.place %>
+  </p>
+
+  <p>
+    <strong>Fecha:</strong>
+      <%= l concert.date, format: "%d-%b-%Y" %>
+  </p>
+
+</div>
