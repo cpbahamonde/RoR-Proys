@@ -18,15 +18,5 @@ module GestVet
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-
-    # config.time_zone = "Central Time (US & Canada)"
-    # [https://www.youtube.com/watch?v=guMn2NB4pMk]
-    config.time_zone = "America/Santiago"
-
-    # Rails Internationalization (I18n) - How to translate & localize your app [https://www.youtube.com/watch?v=lCyP8uKRqQo]
-    config.i18n.available_locales = [:en, :es]
-    config.i18n.default_locale = :es
-    config.i18n.fallbacks = true
-
   end
 end

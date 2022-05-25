@@ -16,7 +16,7 @@ puts "Poblando Datos..."
     groups = Group.create(
 		name: Faker::Music.band,
         q_crew: rand(1..10),
-		debut_date: Faker::Date.between(from: '1980-01-01', to: '2000-01-31'),
+		debut_date: Faker::Date.between(from: '1980-01-01', to: '2020-01-31'),
         group_type: group_type
 		 	
   	)
@@ -27,9 +27,17 @@ end
 		attendance: rand(1000..10000),
 		duration: rand(1..5),
 		place: Faker::Address.community,
-		date: Faker::Date.between(from: '2020-01-01', to: Date.today),
+		date: Faker::Date.between(from: '2021-01-01', to: Date.today),
 		group_id: rand(1..5)
   	)
 end
+
+25.times do
+	crews = Crew.create(
+		name: Faker::Name.name ,
+		group_id: rand(1..5)
+  	)
+end
+
 
 puts "Carga de Datos OK"

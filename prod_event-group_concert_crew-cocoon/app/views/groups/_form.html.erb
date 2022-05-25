@@ -18,11 +18,6 @@
         </div>
 
         <div>
-          <%= form.label :q_crew, style: "display: block" %>
-          <%= form.number_field :q_crew, :required => true  %>
-        </div>
-
-        <div>
           <%= form.label :debut_date, style: "display: block" %>
           <%= form.date_field :debut_date, :required => true  %>
         </div>
@@ -32,16 +27,17 @@
           <%= form.select :group_type, options_for_select(@group_types) %>
         </div>
 
-        <h3>Integrantes</h3>
+        <br>
+        <h5>Integrantes: <%= @group.integrs %></h5>
 
-        <div class="nested-fields">
+        <div >
             <%= form.fields_for :crews do |ff| %>
               <%= render "crew_fields", :f => ff %>
             <%end%>
         </div>
 
         <div class="jq">
-          <%= link_to_add_association 'Añadir Intgr', form, :crews, partial: "groups/crew_fields" %>
+          <%= link_to_add_association 'Añadir Integrante', form, :crews %>
         </div>
 
         <div>

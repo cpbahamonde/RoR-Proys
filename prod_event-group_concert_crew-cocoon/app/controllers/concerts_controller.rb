@@ -27,7 +27,7 @@ class ConcertsController < ApplicationController
 
     respond_to do |format|
       if @concert.save
-        format.html { redirect_to concert_url(@concert), notice: "Concert was successfully created." }
+        format.html { redirect_to concert_url(@concert), notice: "Concierto creado exitosamente" }
         format.json { render :show, status: :created, location: @concert }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class ConcertsController < ApplicationController
   def update
     respond_to do |format|
       if @concert.update(concert_params)
-        format.html { redirect_to concert_url(@concert), notice: "Concert was successfully updated." }
+        format.html { redirect_to concert_url(@concert), notice: "Concierto modificado exitosamente" }
         format.json { render :show, status: :ok, location: @concert }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class ConcertsController < ApplicationController
     @concert.destroy
 
     respond_to do |format|
-      format.html { redirect_to concerts_url, notice: "Concert was successfully destroyed." }
+      format.html { redirect_to concerts_url, notice: "Concierto eliminado exitosamente" }
       format.json { head :no_content }
     end
   end

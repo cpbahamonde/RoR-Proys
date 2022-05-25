@@ -1,23 +1,6 @@
+**/logs
+**/tmp
+**/.history
+**/test
 
-blog/tmp/*
-form1/tmp/*
-modelos/tmp/*
-x-first_app/tmp/*
-x-non-startup-app/tmp/*
-x-p1/tmp/*
-x-proy_test1/tmp/*
-z-form1-app-20220421/tmp/*
-z-form1-styled/tmp/*
-z-second_app/tmp/*
-blog/.history/*
-form1/.history/*
-modelos/.history/*
-x-first_app/.history/*
-x-non-startup-app/.history/*
-x-p1/.history/*
-x-proy_test1/.history/*
-z-form1-app-20220421/.history/*
-z-form1-styled/.history/*
-z-second_app/.history/*
-.history/*
 

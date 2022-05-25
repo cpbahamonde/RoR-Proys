@@ -1,14 +1,10 @@
-<div class="bg bg-secondary text-light justify-content-center text-center">
+<h1>Editing pet</h1>
 
-  <h1>Editar Mascota</h1>
+<%= render "form", pet: @pet %>
 
-  <%= render "form", pet: @pet %>
+<br>
 
-  <br>
-
-  <div>
-    <%= link_to "Show this pet", @pet %> |
-    <%= link_to "Back to pets", pets_path %>
-  </div>
-
+<div>
+  <%= link_to "Show this pet", @pet %> |
+  <%= link_to "Back to pets", pets_path %>
 </div>

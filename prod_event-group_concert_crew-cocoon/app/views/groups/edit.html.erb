@@ -5,19 +5,22 @@
 <br>
 
   <div class="d-flex flex-row  justify-content-around">
-    <div class="p-2"><%= button_to "Mostrar este Grupo", @group, method: :get  %>  </div>
-    <div class="p-2"><%= button_to "Volver a Grupos", groups_path, method: :get %></div>
+
+    <div>
+      <%= link_to "Cancelar", group_path, class:"btn btn-sm btn-outline-success text-center"%>
+    </div>
 
     <div class="p-2">      
-    <%= button_to "Eliminar", group_path(@group), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Are you sure?" }, :html => { :method => :delete, :remote => true}, onclick: "return confirmDestroy('Seguro que desea eliminar el Libro seleccionado?')"%>
+      <%= button_to "Eliminar", group_path(@group), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Are you sure?" }, :html => { :method => :delete, :remote => true}, onclick: "return confirmDestroy('Seguro que desea eliminar el Grupo seleccionado?')"%>
     </div>
-</div>
+    
+  </div>
 
-<script>
-function confirmDestroy(message) {
-  if (!confirm(message)) {
-    return false;
-  }
-}
-</script>
+  <script>
+    function confirmDestroy(message) {
+      if (!confirm(message)) {
+        return false;
+      }
+    }
+  </script>
 

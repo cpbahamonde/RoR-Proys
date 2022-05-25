@@ -4,19 +4,21 @@ es:
     models:
       concert: "Concierto"
       group: "Grupo"
-      crew: "Miembro"
+      crew: "Integrante"
     attributes:
       concert:
         attendance: "Asistentes"
         duration: "Duracion"
         place: "Ubicacion"  
         date: "Fecha"
+        group: "Grupo"
       group:
         name: "Nombre Grupo"
-        q_crew: "CantIntegrantes"
+        q_crew: "Cant. Integrantes"
         debut_date: "Fecha Debut"  
         group_type: "Tipo Grupo"
-      crew: "Integrantes"
+      crew: 
+        name: "Nombre Integrante"
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'

@@ -3,20 +3,23 @@ class PetsController < ApplicationController
 
   # GET /pets or /pets.json
   def index
-    @pets = Pet.eager_load(:pet_histories)
+    @pets = Pet.all
   end
 
   # GET /pets/1 or /pets/1.json
   def show
+    @pets = Pet.all
   end
 
   # GET /pets/new
   def new
     @pet = Pet.new
+    @holders = Holder.all
   end
 
   # GET /pets/1/edit
   def edit
+     @holders = Holder.all
   end
 
   # POST /pets or /pets.json
@@ -65,6 +68,6 @@ class PetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pet_params
-      params.require(:pet).permit(:name, :race, :birthdate)
+      params.require(:pet).permit(:name, :race, :birthdate, :holder_id)
     end
 end

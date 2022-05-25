@@ -10,18 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_11_150248) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_24_140708) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "pet_histories", force: :cascade do |t|
+  create_table "holders", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "address"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pethistories", force: :cascade do |t|
     t.float "weight"
-    t.string "height"
+    t.float "height"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "holder_id", null: false
     t.bigint "pet_id", null: false
-    t.index ["pet_id"], name: "index_pet_histories_on_pet_id"
+    t.index ["holder_id"], name: "index_pethistories_on_holder_id"
+    t.index ["pet_id"], name: "index_pethistories_on_pet_id"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -30,7 +41,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_11_150248) do
     t.date "birthdate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "holder_id", null: false
+    t.index ["holder_id"], name: "index_pets_on_holder_id"
   end
 
-  add_foreign_key "pet_histories", "pets"
+  add_foreign_key "pethistories", "holders"
+  add_foreign_key "pethistories", "pets"
+  add_foreign_key "pets", "holders"
 end

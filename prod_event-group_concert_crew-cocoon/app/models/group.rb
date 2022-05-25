@@ -9,6 +9,10 @@ class Group < ApplicationRecord
         self.concerts.count
     end
 
+    def integrs
+        self.crews.count
+    end
+
     def concert_this_month
         this_month= Time.now.month
         self.concerts.select {|m| m.date.month == this_month}.count
@@ -21,7 +25,6 @@ class Group < ApplicationRecord
             "Sin conciertos aun"
         end
     end
-
 
     def max_attendance
         self.concerts.map{|c| c.attendance}.max

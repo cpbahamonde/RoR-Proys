@@ -13,7 +13,7 @@
   <div class="card ">
     <div class="card-body">
       <div>
-        <%= form.label :groups %>
+        <%= form.label :group %>
         <%= form.select :group_id, options_from_collection_for_select(@groups, :id, :name) %>
       </div>
       <br>
@@ -21,17 +21,17 @@
         <%= form.label :attendance, style: "display: block" %>
         <%= form.number_field :attendance, :required => true %> Personas
       </div>
-
+      <br>
       <div>
         <%= form.label :duration, style: "display: block" %> 
         <%= form.number_field :duration, :required => true %> Horas
       </div>
-
+      <br>
       <div>
         <%= form.label :place, style: "display: block" %>
         <%= form.text_field :place, :required => true %>
       </div>
-
+      <br>
       <div>
         <%= form.label :date, style: "display: block" %>
         <%= form.datetime_field :date, :required => true %>

@@ -5,9 +5,22 @@
 <br>
 
   <div class="d-flex flex-row  justify-content-around">
-    <div class="p-2"><%= button_to "Mostrar este Concierto", @concert, method: :get  %>  </div>
-    <div class="p-2"><%= button_to "Volver a Conciertos", concerts_path, method: :get %></div>
-    <div class="p-2"><%= button_to "Eliminar Concierto", @concert, method: :delete %></div>
     
-    <%= button_to "Eliminar", libro_path(libro), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Are you sure?" }, :html => { :method => :delete, :remote => true}, onclick: "return confirmDestroy('Seguro que desea eliminar el Libro seleccionado?')"%>
+    <div>
+      <%= link_to "Cancelar", concert_path, class:"btn btn-sm btn-outline-success text-center"%>
+    </div>
+
+    <div>
+        <%= button_to "Eliminar", concert_path(@concert), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Are you sure?" }, :html => { :method => :delete, :remote => true}, onclick: "return confirmDestroy('Seguro que desea eliminar el Concierto seleccionado?')"%>
+    </div>
+
   </div>
+
+
+  <script>
+    function confirmDestroy(message) {
+      if (!confirm(message)) {
+        return false;
+      }
+    }
+  </script>

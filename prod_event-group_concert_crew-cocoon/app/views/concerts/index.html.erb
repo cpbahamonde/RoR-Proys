@@ -33,13 +33,11 @@
                     <td class="align-middle" ><%= concert.place %></td>
                     <td class="align-middle" ><%= l concert.date, format: "%d-%b-%Y" %></td>
 
-                    <td class="align-middle">
-                        <%= button_to "Mostrar Concierto", concert, method: :get  %>
+                    <td class="align-middle text-center">
+                        <div>
+                            <%= button_to "Mostrar Concierto", concert, method: :get  %>
+                        </div>
                     </td>
-                    <td class="align-middle">
-
-                    </td>
-
                 </tr>
             <% end %>
         </tbody>

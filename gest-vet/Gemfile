@@ -27,26 +27,6 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# dummy data
-# Faker is used to easily generate fake data: names, addresses, phone numbers, etc.
-gem 'faker' #, :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-
-# Paginacion
-# Kaminari is a paginator for Rails https://github.com/kaminari/kaminari
-gem 'kaminari'
-
-# Estilo para kaminari 
-# Bootstrap 4 styling for Kaminari https://github.com/KamilDzierbicki/bootstrap4-kaminari-views
-gem 'bootstrap4-kaminari-views'
-
-# Ransack para formularios de busqueda
-# Ransack is use to implement advanced search capability https://activerecord-hackery.github.io/ransack/
-gem 'ransack'
-
-# Use jQuery with Rails 4+ https://github.com/rails/jquery-rails
-gem 'jquery-rails'
-
-
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -71,17 +51,6 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-
-  # Hirb provides a mini view framework for console/irb applications that's easy to use, and uses it to improve ripl(irb)'s default inspect output.Given an object or array of objects. http://tagaholic.me/hirb/
-  gem "hirb"
-
-  # Entity-relationship diagram for your Rails models. https://github.com/voormedia/rails-erd
-	# La gema Rails-ERD depende de la app graphviz https://graphviz.org/download/, previamente instalada
-	# Con la gema instalada puede generar los diagramas ocupando: 'bundle exec erd'
-	# Para  generar el diagrama cada vez que haga un cambio, puede usar el autogenerador: 'bundle exec rails g erd:install'
-	# Para ver los diagramas en el navegador http://localhost:3000/erd, es necesario tener instalada la gema jquery-rails. 
-  gem 'rails-erd'
-
 end
 
 group :development do
@@ -93,6 +62,8 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'hirb'
+  
 end
 
 group :test do
