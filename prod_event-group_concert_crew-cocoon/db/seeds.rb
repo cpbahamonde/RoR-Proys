@@ -11,7 +11,7 @@ require 'faker'
 puts "Poblando Datos..."
 
 
-5.times do
+8.times do
 	group_type = ["BoysGroup","GirlsGroup","Band"].sample
     groups = Group.create(
 		name: Faker::Music.band,
@@ -34,7 +34,7 @@ end
 
 25.times do
 	crews = Crew.create(
-		name: Faker::Name.name ,
+		name: Faker::Name.name,
 		group_id: rand(1..5)
   	)
 end

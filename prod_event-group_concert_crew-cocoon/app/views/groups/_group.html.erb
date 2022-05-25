@@ -1,49 +1,21 @@
 <div id="<%= dom_id group %>">
 
-<div class="card text-center">
+<div class="card text-center ">
   <div class="card-header">
     <h2><strong><%= group.name %></strong></h2>
   </div>
   <div class="card-body">
-    <h5 class="card-title">Debut: <%= group.debut_date %></h5>
-    <p class="card-text">
-      <div class="row row-cols-6 row-cols-md-3 g-4">
-        <p><strong>Cant. Integrantes: <%= group.integrs %></strong></p>
-        <p><strong>Tipo Grupo:  <%= group.group_type %></strong></p>
-      </div>
-          <td>
-                  <div class="card-footer bg-transparent border-success">
-                    <td>
-                      Cantidad Conciertos: <%= group.q_concert %>
-                    </td>
-                    <table class="table table-striped">
+    
+    <div class="card-text">
 
-                      <thead class="thead-dark">
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Fecha</th>
-                          <th scope="col">Ubicacion</th>
-                          <th scope="col">Cant Publico</th>
-                          <th scope="col">Duracion</th>
-                        </tr>
-                      </thead>
-                      <% num = 1%>
-                      <% group.concerts.each do |concert| %>
-                          <tbody>
-                            <tr>
-                              <th scope="row"><%=num%></th>
-                              <td><%= l concert.date, format: "%d-%b-%Y" %></td>
-                              <td><%= concert.place %></td>
-                              <td><%= concert.attendance %>  Personas</td>
-                              <td><%= concert.duration %> Hora(s)</td>
-                            </tr>
-                          </tbody>
-                          <% num +=1%>
-                      <%end%>
-                    </table>
-                  </div>
-          </td>      
-   </p>
+      <div >
+        <div>Debut: <strong><%= l group.debut_date, format: "%d-%b-%Y"  %></strong></div>
+        <div>Tipo Grupo:  <strong><%= group.group_type %></strong></div>
+        <div>Cant. Integrantes: <strong><%= group.integrs %></strong></div>
+        <div>Cantidad Conciertos: <strong><%= group.q_concert %></strong></div>
+      </div>
+    
+    </div>
   </div>
   <div class="card-footer text-muted">
       <button type="button" class="btn btn-outline-info text-white text-decoration-none" ><%= link_to "Mostrar Grupo", group %></button>
