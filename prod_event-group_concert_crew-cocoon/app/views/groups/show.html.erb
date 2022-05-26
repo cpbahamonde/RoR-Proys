@@ -22,62 +22,77 @@
                 <%end%>
               </ul>
             </td>  
-
-            <td>
-                <div class="card-footer bg-transparent border-success">
-                  <td>
-                      <strong>Cantidad Conciertos: <%= @group.q_concert %></strong>
-                  </td>
-                  <table class="table table-striped">
-
-                    <thead class="thead-dark">
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Ubicacion</th>
-                        <th scope="col">Cant Publico</th>
-                        <th scope="col">Duracion</th>
-                      </tr>
-                    </thead>
-                    <% num = 1%>
-                    <% @group.concerts.each do |concert| %>
-                        <tbody>
-                          <tr>
-                            <th scope="row"><%=num%></th>
-                            <td><%= l concert.date, format: "%d-%b-%Y" %></td>
-                            <td><%= concert.place %></td>
-                            <td><%= concert.attendance %>  Personas</td>
-                            <td><%= concert.duration %> Hora(s)</td>
-                          </tr>
-                        </tbody>
-                        <% num +=1%>
-                    <%end%>
-                  </table>
-                </div>
-            </td>  
-
+            <% if @group.concerts.present? %>
+              <td>
+                  <div class="card-footer bg-transparent border-success">
+                        <td>
+                            <strong>Cantidad Conciertos: <%= @group.q_concert %></strong>
+                        </td>
+                        <table class="table table-striped">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Fecha</th>
+                              <th scope="col">Ubicacion</th>
+                              <th scope="col">Cant Publico</th>
+                              <th scope="col">Duracion</th>
+                            </tr>
+                          </thead>
+                          <% num = 1%>
+                          <% @group.concertss.each do |concert| %>
+                              <tbody>
+                                <tr>
+                                  <th scope="row"><%=num%></th>
+                                  <td><%= l concert.date, format: "%d-%b-%Y" %></td>
+                                  <td><%= concert.place %></td>
+                                  <td><%= concert.attendance %> Personas</td>
+                                  
+                                  <% if concert.duration == 1 %>
+                                    <td><%= concert.duration %> Hora</td>
+                                  <% else %>
+                                    <td><%= concert.duration %> Horas</td>
+                                  <% end %>
+                                </tr>
+                              </tbody>
+                              <% num +=1%>
+                          <%end%>
+                        </table>
+                    
+                  </div>
+              </td>  
+            <% end %>
         </p>
 
       </div>
 
       <div class="card-footer bg-transparent border-success">
-        <table class="table table-striped">
+        <table class="table table-striped text-center">
           <thead class="thead-dark">
-            <tr>
-              <th scope="col">Conciertos este mes </th>
-              <th scope="col">Fecha Ultimo Concierto</th>
-              <th scope="col">Mayor Asistencia en Concierto</th>
-              <th scope="col">Duracion Maxima de Concierto</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= @group.concert_this_month %></td>
-              <td><%= @group.last_concert %></td>
-              <td><%= @group.max_attendance %> personas</td>
-              <td><%= @group.max_duration %> Hora(s)</td>
-            </tr>
-          </tbody>
+          <% unless @group.concerts.present? %> 
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Sin conciertos aun </th>
+              </tr>
+            </thead>
+          <% else %>
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Conciertos <%= @group.this_month_l %> <%= @group.this_year %></th>
+                <th scope="col">Fecha Ultimo Concierto</th>
+                <th scope="col">Mayor Asistencia en Concierto</th>
+                <th scope="col">Duracion Maxima de Concierto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= @group.concert_this_month %></td>
+                <td><%= l @group.last_concert, format: "%d-%b-%Y" %></td>
+                <td><%= @group.max_attendance %> personas </td>
+                <td><%= @group.max_duration %> Horas</td>
+              </tr>
+             
+            </tbody>
+          <% end %>
         </table>
       </div>
     

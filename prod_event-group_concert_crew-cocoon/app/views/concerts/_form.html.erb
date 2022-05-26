@@ -19,12 +19,13 @@
       <br>
       <div>
         <%= form.label :attendance, style: "display: block" %>
-        <%= form.number_field :attendance, :required => true %> Personas
+        <%= form.number_field :attendance, min: 1, :required => true %> Personas
       </div>
       <br>
       <div>
         <%= form.label :duration, style: "display: block" %> 
-        <%= form.number_field :duration, :required => true %> Horas
+        <%= form.number_field :duration, min: 1, :required => true %> Horas
+
       </div>
       <br>
       <div>

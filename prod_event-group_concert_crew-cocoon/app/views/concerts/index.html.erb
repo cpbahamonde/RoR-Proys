@@ -24,19 +24,23 @@
                 <th scope="col"> Fecha</th>
             </tr>
         </thead>
-        <tbody class="text-decoration-none" >
+        <tbody class="text-decoration-none text-center" >
             <% @concerts.each do |concert| %>
                 <tr>    
                     <td class="align-middle" ><%= concert.group_name %></td>
                     <td class="align-middle" ><%= concert.attendance %> Personas</td>
-                    <td class="align-middle" ><%= concert.duration %> Hora(s)</td>
+                    <% if concert.duration == 1 %>
+                        <td class="align-middle" ><%= concert.duration %> Hora</td>
+                    <% else %>
+                        <td class="align-middle" ><%= concert.duration %> Horas</td>
+                    <% end %>
+                    
                     <td class="align-middle" ><%= concert.place %></td>
                     <td class="align-middle" ><%= l concert.date, format: "%d-%b-%Y" %></td>
 
                     <td class="align-middle text-center">
-                        <div>
-                            <%= button_to "Mostrar Concierto", concert, method: :get  %>
-                        </div>
+                         <div class="p-2"><%= button_to "Editar Concierto", edit_concert_path(concert), method: :get %> 
+                         </div>
                     </td>
                 </tr>
             <% end %>
