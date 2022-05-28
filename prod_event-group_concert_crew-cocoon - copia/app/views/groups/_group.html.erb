@@ -1,0 +1,27 @@
+<div id="<%= dom_id group %>">
+
+<div class="card text-center ">
+  <div class="card-header">
+    <h2><strong><%= group.name %></strong></h2>
+  </div>
+  <div class="card-body">
+    
+    <div class="card-text">
+
+      <div >
+        <div>Debut: <strong><%= l group.debut_date, format: "%d-%b-%Y"  %></strong></div>
+        <div>Tipo Grupo:  <strong><%= group.group_type %></strong></div>
+        <div>Cant. Integrantes: <strong><%= group.integrs %></strong></div>
+        <div>Cantidad Conciertos: <strong><%= group.q_concert %></strong></div>
+      </div>
+    
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+      <button type="button" class="btn btn-outline-info text-white text-decoration-none" ><%= link_to "Mostrar Grupo", group %></button>
+  </div>
+</div>
+<br> 
+</div>
+
+
