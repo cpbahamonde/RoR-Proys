@@ -1,0 +1,75 @@
+<h1>Editar Consulta</h1>
+
+
+<%= form_with(model: @pethistory) do |form| %>
+  <% if @pethistory.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@pethistory.errors.count, "error") %> prohibited this pethistory from being saved:</h2>
+
+      <ul>
+        <% @pethistory.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="card text-center ">
+
+    <div class="card-header">
+    </div>
+    
+    <div class="card-body">
+      
+        <div class="card-text">
+            <div>
+              <h3 class="align-middle text-decoration-none text-center"><%= @pethistory.petname %></h3>
+            </div>
+            
+            <div>
+              <p class="align-middle text-decoration-none text-center">Dueño <%= @pethistory.pet.owner %></p>
+            </div>
+            <br>
+
+            <div>
+              <%= form.label :weight, style: "display: block" %>
+              <%= form.text_field :weight %>
+            </div>
+
+            <div>
+              <%= form.label :height, style: "display: block" %>
+              <%= form.text_field :height %>
+            </div>
+
+            <div>
+              <%= form.label :description, style: "display: block" %>
+              <%= form.text_area :description %>
+            </div>
+            <br>
+
+          <div class="container px-4">
+            <div class="row gx-5">
+              <div class="col d-flex justify-content-around col-7">
+
+                <%= link_to "Cancelar", pethistories_path, class:"btn  btn-sm btn-small btn-outline-dark d-flex align-self-center justify-content-around col-3 "%> 
+              </div>
+              <div class="col d-flex justify-content-around col-3 ">
+                <%= form.submit "Ingresar", class:"btn  btn-sm btn-small btn-outline-success d-flex align-self-center justify-content-around col-6 " %>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+    </div>
+
+    <div class="card-footer text-muted">
+    </div>
+  </div>
+
+<% end %>
+
+
+
+

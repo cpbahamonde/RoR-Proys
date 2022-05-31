@@ -1,0 +1,101 @@
+
+ <p style="color: green"><%= notice %></p>
+
+  <div class="card border-success mb-3 card h-100 w-100" >
+
+      <div class="card-header bg-transparent border-success">
+          <h2><strong><%= @holder.name %></strong></h2>
+      </div>
+
+      <div class="card-body text-success">
+        <h5 class="card-title"><strong></strong></h5>
+       
+        <p class="card-text">
+          <p>Fono               : <strong><%= @holder.phone %></strong></p>
+          <p>Direccion          : <strong><%= @holder.address %></strong></p>
+          <p>Email              : <strong><%= @holder.email %></strong></p>
+          <p>Cantidad Mascotas  : <strong><%= @holder.q_pets %></strong></p>
+
+            <% if @holder.pets.present? %>
+              <td>
+                  <div class="card-footer bg-transparent border-success">
+                        <td>
+                            <strong></strong>
+                        </td>
+                        <table class="table table-striped">
+                          <thead class="thead-dark text-center">
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Nombre</th>
+                              <th scope="col">Tipo</th>
+                              <th scope="col">Consultas</th>
+                              <th scope="col">Peso Maximo</th>
+                              <th scope="col">Peso Promedio</th>
+                              <th scope="col">Altura Maxima</th>
+                              <th scope="col">Altura Promedio</th>
+                              
+                            </tr>
+                          </thead>
+                          <% nump = 1%>
+                          <% @holder.pets.each do |pet| %>
+
+                              <tbody  class="tbody-dark text-center">
+                                <% if pet.q_appointments  == 0  %>
+                                  <tr>
+                                    <td scope="row"> <%= nump %> </td>
+                                    <td scope="row" class="align-middle text-decoration-none text-center "><%= link_to "#{pet.name}", pet_path(pet), class: "btn btn-light btn-sm text-dark"%></td>
+                                    <td scope="row"> Sin consultas aun </td> 
+                                    <td scope="row">  </td> 
+                                    <td scope="row">  </td>
+                                    <td scope="row">  </td> 
+                                    <td scope="row">  </td> 
+                                    <td scope="row">  </td>                                  
+                                  </tr>
+                                <% else  %>
+                                  <tr>
+                                    <td scope="row"> <%=nump%> </td>
+                                    <td scope="row" class="align-middle text-decoration-none text-center "><%= link_to "#{pet.name}", pet_path(pet), class: "btn btn-light btn-sm text-dark"%></td>
+                                    <td scope="row"><%= pet.typepet %></td>
+                                      <% if pet.q_appointments  == 1  %>
+                                        <td scope="row"> <%= pet.q_appointments  %> Consulta </td>
+                                      <% else %>
+                                        <td scope="row"> <%= pet.q_appointments  %> Consultas </td>
+                                      <% end %>
+                                    <td scope="row"><%= "#{'%.1f' % pet.weight_max }" %> kilos</td>
+                                    <td scope="row"><%= "#{'%.1f' % pet.weight_avg }" %> kilos</td>
+                                    <td scope="row"><%= "#{'%.1f' % pet.height_max }" %> cms</td>
+                                    <td scope="row"><%= "#{'%.1f' % pet.height_avg }" %> cms</td>
+                                  </tr>
+                                <% end  %>
+                              </tbody>
+                              <% nump +=1%>
+                          <%end%>
+                        </table>
+                    
+                  </div>
+              </td>  
+            <% end %>
+        </p>
+
+      </div>
+
+    
+      <div class="d-flex flex-row  justify-content-around">
+        <div class="p-2"><%= button_to "Editar Dueño", edit_holder_path(@holder), method: :get  %>  </div>
+        <div class="p-2"><%= button_to "Volver a Dueños", holders_path, method: :get %></div>
+
+        <div class="p-2">      
+          <%= button_to "Eliminar", holder_path(@holder), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Are you sure?" }, :html => { :method => :delete, :remote => true}, onclick: "return confirmDestroy('Seguro que desea eliminar el Dueño seleccionado?')"%>
+      </div>
+      
+  </div>
+
+  <script>
+    function confirmDestroy(message) {
+      if (!confirm(message)) {
+        return false;
+      }
+    }
+  </script>
+
+  <br>
