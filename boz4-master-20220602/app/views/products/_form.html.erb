@@ -1,0 +1,78 @@
+<%= form_with(model: product) do |form| %>
+  <% if product.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <div>
+      <%= form.hidden_field :user_id, value: current_user.id%>
+    </div>
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div>
+      <%= form.label :desciption, style: "display: block" %>
+      <%= form.text_area :desciption %>
+    </div>
+
+    <div>
+      <%= form.label :price, style: "display: block" %>
+      <%= form.number_field :price %>
+    </div>
+
+    <div>
+      <%= form.label :cost, style: "display: block" %>
+      <%= form.number_field :cost %>
+    </div>
+
+    <div>
+      <%= form.label :t_schedule, style: "display: block" %>
+      <%= form.number_field :t_schedule %>
+    </div>
+
+    <div>
+      <%= form.label :stock, style: "display: block" %>
+      <%= form.number_field :stock %>
+    </div>
+
+    <div>
+      <%= form.label :img_url, style: "display: block" %>
+      <%= form.text_field :img_url %>
+    </div>
+    <div>
+      <legend>Categoria:</legend>
+      <%= form.fields_for :categories do |ff| %>
+        <%= render "category_fields", :f => ff %>
+      <%end%>
+    </div>
+    <div>
+      <%= link_to_add_association 'Añadir categorias', form, :categories %>
+    </div>
+    <div>
+      <legend>Caracteristica:</legend>
+      <%= form.fields_for :m_features do |ff| %>
+        <%= render "m_feature_fields", :f => ff %>
+      <%end%>
+    </div>
+    <div>
+      <%= link_to_add_association 'Añadir caracteristicas', form, :m_features %>
+    </div>
+    <div class="field">
+      <%= form.label :images %>
+      <%= form.file_field :images,multiple: true %>
+    </div>
+
+    <div>
+      <%= form.submit "enviar" , class:"btn btn-boz"%>
+    </div>
+  </div>
+<% end %>
