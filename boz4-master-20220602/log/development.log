@@ -50672,3 +50672,296 @@ FOREIGN KEY ("user_id")
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
   [1m[36mProduct Create (1.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "desciption", "price", "cost", "t_schedule", "stock", "img_url", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Incredible Concrete Plate"], ["desciption", "[\"Eos soluta excepturi.\", \"Et porro occaecati.\"]"], ["price", 2940], ["cost", 1470], ["t_schedule", 2], ["stock", 7], ["img_url", "https://loremflickr.com/180/182/all"], ["created_at", "2022-06-02 23:35:47.768761"], ["updated_at", "2022-06-02 23:35:47.768761"], ["user_id", 3]]
   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2022-06-02 20:01:25 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 261ms (ActiveRecord: 0.0ms | Allocations: 2087)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-06-02 20:01:28 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 45.7ms | Allocations: 729)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 463.3ms | Allocations: 4974)
+  Rendered layout layouts/application.html.erb (Duration: 10846.5ms | Allocations: 104525)
+Completed 500 Internal Server Error in 11423ms (ActiveRecord: 23.9ms | Allocations: 114051)
+
+
+  
+ActionView::Template::Error (File exists @ dir_s_mkdir - G:/Mi unidad/RoR/RoR-GitHub/RoR-Proys/boz4-master-20220602/tmp/cache/assets/sprockets/v4.0.0/NO):
+  
+C:/Ruby31-x64/lib/ruby/3.1.0/fileutils.rb:243:in `mkdir'
+C:/Ruby31-x64/lib/ruby/3.1.0/fileutils.rb:243:in `fu_mkdir'
+C:/Ruby31-x64/lib/ruby/3.1.0/fileutils.rb:221:in `block (2 levels) in mkdir_p'
+C:/Ruby31-x64/lib/ruby/3.1.0/fileutils.rb:219:in `reverse_each'
+C:/Ruby31-x64/lib/ruby/3.1.0/fileutils.rb:219:in `block in mkdir_p'
+C:/Ruby31-x64/lib/ruby/3.1.0/fileutils.rb:211:in `each'
+C:/Ruby31-x64/lib/ruby/3.1.0/fileutils.rb:211:in `mkdir_p'
+sprockets (4.0.3) lib/sprockets/cache/file_store.rb:89:in `set'
+sprockets (4.0.3) lib/sprockets/cache.rb:227:in `set'
+sprockets (4.0.3) lib/sprockets/cache.rb:143:in `set'
+sprockets (4.0.3) lib/sprockets/loader.rb:263:in `store_asset'
+sprockets (4.0.3) lib/sprockets/loader.rb:226:in `load_from_unloaded'
+sprockets (4.0.3) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.0.3) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.0.3) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.0.3) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.0.3) lib/sprockets/bundle.rb:32:in `block in call'
+C:/Ruby31-x64/lib/ruby/3.1.0/set.rb:511:in `each_key'
+C:/Ruby31-x64/lib/ruby/3.1.0/set.rb:511:in `each'
+sprockets (4.0.3) lib/sprockets/bundle.rb:31:in `call'
+sprockets (4.0.3) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.0.3) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.0.3) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.0.3) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.0.3) lib/sprockets/loader.rb:182:in `load_from_unloaded'
+sprockets (4.0.3) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.0.3) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.0.3) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.0.3) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.0.3) lib/sprockets/base.rb:81:in `find_asset'
+sprockets (4.0.3) lib/sprockets/base.rb:88:in `find_all_linked_assets'
+sprockets (4.0.3) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.0.3) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.0.3) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.1.10) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.1.10) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:47:in `block in synchronize'
+concurrent-ruby (1.1.10) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:47:in `synchronize'
+concurrent-ruby (1.1.10) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:47:in `synchronize'
+concurrent-ruby (1.1.10) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.1.10) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.1.10) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.1.10) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.1.10) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.1.10) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.1.10) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.1.10) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-06-02 20:01:53 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 163)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1503)
+  Rendered shared/_navbar2.html.erb (Duration: 20.9ms | Allocations: 569)
+  Rendered shared/_footer.html.erb (Duration: 11.2ms | Allocations: 149)
+  Rendered layout layouts/application.html.erb (Duration: 711.8ms | Allocations: 71270)
+Completed 200 OK in 742ms (Views: 713.8ms | ActiveRecord: 0.0ms | Allocations: 72112)
+
+
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-06-02 20:03:41 -0400
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"super@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (19.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "super@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (8.8ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["remember_created_at", "2022-06-03 00:03:43.147457"], ["updated_at", "2022-06-03 00:03:43.169564"], ["id", 2]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 1220ms (ActiveRecord: 44.0ms | Allocations: 11282)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-02 20:03:43 -0400
+Processing by ProductsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Count (12.4ms)[0m  [1m[34mSELECT COUNT(DISTINCT "products"."id") FROM "products"[0m
+  ↳ app/views/products/index.html.erb:28
+  [1m[36mProduct Load (6.7ms)[0m  [1m[34mSELECT DISTINCT "products".* FROM "products" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:47
+  Rendered products/index.html.erb within layouts/application (Duration: 835.3ms | Allocations: 29567)
+  Rendered shared/_navbar2.html.erb (Duration: 1.7ms | Allocations: 188)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered layout layouts/application.html.erb (Duration: 931.7ms | Allocations: 33445)
+Completed 200 OK in 1104ms (Views: 917.0ms | ActiveRecord: 46.1ms | Allocations: 36617)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2022-06-02 20:03:52 -0400
+Processing by ProductsController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_category_fields.html.erb (Duration: 12.1ms | Allocations: 711)
+  Rendered products/_category_fields.html.erb (Duration: 2.8ms | Allocations: 605)
+  Rendered products/_m_feature_fields.html.erb (Duration: 14.8ms | Allocations: 662)
+  Rendered products/_m_feature_fields.html.erb (Duration: 8.2ms | Allocations: 603)
+  Rendered products/_form.html.erb (Duration: 376.0ms | Allocations: 8231)
+  Rendered products/new.html.erb within layouts/application (Duration: 416.1ms | Allocations: 8596)
+  Rendered shared/_navbar2.html.erb (Duration: 0.4ms | Allocations: 173)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 25)
+  Rendered layout layouts/application.html.erb (Duration: 483.6ms | Allocations: 12372)
+Completed 200 OK in 888ms (Views: 485.4ms | ActiveRecord: 13.0ms | Allocations: 23597)
+
+
+Started POST "/products" for 127.0.0.1 at 2022-06-02 20:04:17 -0400
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"user_id"=>"2", "name"=>"AAtest", "desciption"=>"", "price"=>"", "cost"=>"", "t_schedule"=>"", "stock"=>"", "img_url"=>"", "categories_attributes"=>{"0"=>{"name"=>"", "_destroy"=>"false"}}, "m_features_attributes"=>{"0"=>{"name"=>"", "_destroy"=>"false"}}, "images"=>["", #<ActionDispatch::Http::UploadedFile:0x000001ec801a1c38 @tempfile=#<Tempfile:C:/Users/cpbah/AppData/Local/Temp/RackMultipart20220602-16364-go0df1.jpg>, @original_filename="20211009_194639.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"product[images][]\"; filename=\"20211009_194639.jpg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x000001ec801a1b98 @tempfile=#<Tempfile:C:/Users/cpbah/AppData/Local/Temp/RackMultipart20220602-16364-3sp23h.jpg>, @original_filename="20211009_194729.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"product[images][]\"; filename=\"20211009_194729.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"enviar"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:37:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:37:in `block in create'
+  [1m[36mProduct Create (10.9ms)[0m  [1m[32mINSERT INTO "products" ("name", "desciption", "price", "cost", "t_schedule", "stock", "img_url", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "AAtest"], ["desciption", ""], ["price", nil], ["cost", nil], ["t_schedule", nil], ["stock", nil], ["img_url", ""], ["created_at", "2022-06-03 00:04:18.894563"], ["updated_at", "2022-06-03 00:04:18.894563"], ["user_id", 2]]
+  ↳ app/controllers/products_controller.rb:37:in `block in create'
+  [1m[36mActiveStorage::Blob Create (7.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "uclvbbamjcl58pitewpm04fi2g2z"], ["filename", "20211009_194639.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "amazon"], ["byte_size", 2303652], ["checksum", "tPxygaU7oobWZlH24kXILA=="], ["created_at", "2022-06-03 00:04:18.921839"]]
+  ↳ app/controllers/products_controller.rb:37:in `block in create'
+  [1m[36mActiveStorage::Attachment Create (11.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "images"], ["record_type", "Product"], ["record_id", 46], ["blob_id", 1], ["created_at", "2022-06-03 00:04:18.937226"]]
+  ↳ app/controllers/products_controller.rb:37:in `block in create'
+  [1m[36mActiveStorage::Blob Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "sw1dvj4eo4ptgakz0y9rs87mew8l"], ["filename", "20211009_194729.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "amazon"], ["byte_size", 3328302], ["checksum", "Ou9JoQzkAtbwGiwCWsGWqw=="], ["created_at", "2022-06-03 00:04:18.954428"]]
+  ↳ app/controllers/products_controller.rb:37:in `block in create'
+  [1m[36mActiveStorage::Attachment Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "images"], ["record_type", "Product"], ["record_id", 46], ["blob_id", 2], ["created_at", "2022-06-03 00:04:18.962678"]]
+  ↳ app/controllers/products_controller.rb:37:in `block in create'
+  [1m[36mProduct Update (1.5ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = $1 WHERE "products"."id" = $2[0m  [["updated_at", "2022-06-03 00:04:18.966725"], ["id", 46]]
+  ↳ app/controllers/products_controller.rb:37:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:37:in `block in create'
+[36m  S3 Storage (3329.0ms) [0m[32mUploaded file to key: uclvbbamjcl58pitewpm04fi2g2z (checksum: tPxygaU7oobWZlH24kXILA==)[0m
+[36m  S3 Storage (4155.2ms) [0m[32mUploaded file to key: sw1dvj4eo4ptgakz0y9rs87mew8l (checksum: Ou9JoQzkAtbwGiwCWsGWqw==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: a25d2516-1cd9-45be-9386-e0d777a7ed96) to Async(default) with arguments: #<GlobalID:0x000001ec80c5aa08 @uri=#<URI::GID gid://boz/ActiveStorage::Blob/1>>
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 614a93ed-53e1-4b37-888a-bbb743178e08) to Async(default) with arguments: #<GlobalID:0x000001ecfd06b4b8 @uri=#<URI::GID gid://boz/ActiveStorage::Blob/2>>
+Redirected to http://127.0.0.1:3000/products/46
+Completed 302 Found in 9347ms (ActiveRecord: 45.2ms | Allocations: 59019)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a25d2516-1cd9-45be-9386-e0d777a7ed96]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a25d2516-1cd9-45be-9386-e0d777a7ed96] Performing ActiveStorage::AnalyzeJob (Job ID: a25d2516-1cd9-45be-9386-e0d777a7ed96) from Async(default) enqueued at 2022-06-03T00:04:26Z with arguments: #<GlobalID:0x000001ec80f7bc50 @uri=#<URI::GID gid://boz/ActiveStorage::Blob/1>>
+Started GET "/products/46" for 127.0.0.1 at 2022-06-02 20:04:27 -0400
+[ActiveJob] [ActiveStorage::AnalyzeJob] [614a93ed-53e1-4b37-888a-bbb743178e08]   [1m[36mActiveStorage::Blob Load (1.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [614a93ed-53e1-4b37-888a-bbb743178e08] Performing ActiveStorage::AnalyzeJob (Job ID: 614a93ed-53e1-4b37-888a-bbb743178e08) from Async(default) enqueued at 2022-06-03T00:04:26Z with arguments: #<GlobalID:0x000001ec810077c8 @uri=#<URI::GID gid://boz/ActiveStorage::Blob/2>>
+Processing by ProductsController#show as TURBO_STREAM
+  Parameters: {"id"=>"46"}
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProduct Load (84.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:73:in `set_product'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a25d2516-1cd9-45be-9386-e0d777a7ed96] [36m  S3 Storage (878.9ms) [0m[34mDownloaded file from key: uclvbbamjcl58pitewpm04fi2g2z[0m
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a25d2516-1cd9-45be-9386-e0d777a7ed96] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a25d2516-1cd9-45be-9386-e0d777a7ed96]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a25d2516-1cd9-45be-9386-e0d777a7ed96]   [1m[36mActiveStorage::Blob Update (1.0ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a25d2516-1cd9-45be-9386-e0d777a7ed96]   [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a25d2516-1cd9-45be-9386-e0d777a7ed96] Performed ActiveStorage::AnalyzeJob (Job ID: a25d2516-1cd9-45be-9386-e0d777a7ed96) from Async(default) in 1035.87ms
+  [1m[36mActiveStorage::Attachment Count (6.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 46], ["record_type", "Product"], ["name", "images"]]
+  ↳ app/views/products/_product.html.erb:7
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 46], ["record_type", "Product"], ["name", "images"]]
+  ↳ app/views/products/_product.html.erb:8
+  [1m[36mActiveStorage::Blob Load (3.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/products/_product.html.erb:9
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/products/_product.html.erb:9
+  [1m[36mCategory Count (6.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories" WHERE "categories"."product_id" = $1[0m  [["product_id", 46]]
+  ↳ app/views/products/_product.html.erb:40
+  [1m[36mMFeature Count (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "m_features" WHERE "m_features"."product_id" = $1[0m  [["product_id", 46]]
+  ↳ app/views/products/_product.html.erb:48
+  Rendered products/_product.html.erb (Duration: 70.3ms | Allocations: 7572)
+  Rendered products/show.html.erb within layouts/application (Duration: 188.2ms | Allocations: 13655)
+  Rendered shared/_navbar2.html.erb (Duration: 0.4ms | Allocations: 169)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered layout layouts/application.html.erb (Duration: 254.6ms | Allocations: 19166)
+Completed 200 OK in 551ms (Views: 237.9ms | ActiveRecord: 128.7ms | Allocations: 26908)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f116d0b003d226e5f0c0ec9c93a6c8d5b23104d6/20211009_194639.jpg" for 127.0.0.1 at 2022-06-02 20:04:29 -0400
+[ActiveJob] [ActiveStorage::AnalyzeJob] [614a93ed-53e1-4b37-888a-bbb743178e08] [36m  S3 Storage (1414.5ms) [0m[34mDownloaded file from key: sw1dvj4eo4ptgakz0y9rs87mew8l[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [614a93ed-53e1-4b37-888a-bbb743178e08] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [614a93ed-53e1-4b37-888a-bbb743178e08]   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [614a93ed-53e1-4b37-888a-bbb743178e08]   [1m[36mActiveStorage::Blob Update (1.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [614a93ed-53e1-4b37-888a-bbb743178e08]   [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [614a93ed-53e1-4b37-888a-bbb743178e08] Performed ActiveStorage::AnalyzeJob (Job ID: 614a93ed-53e1-4b37-888a-bbb743178e08) from Async(default) in 1781.86ms
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f7a70d3b6ddf30ae961dd33b4c779cddb89cf8a6/20211009_194729.jpg" for 127.0.0.1 at 2022-06-02 20:04:29 -0400
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f116d0b003d226e5f0c0ec9c93a6c8d5b23104d6", "filename"=>"20211009_194639"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  S3 Storage (20.0ms) [0m[34mGenerated URL for file at key: uclvbbamjcl58pitewpm04fi2g2z (https://boz4.s3.sa-east-1.amazonaws.com/uclvbbamjcl58pitewpm04fi2g2z?response-content-disposition=inline%3B%20filename%3D%2220211009_194639.jpg%22%3B%20filename%2A%3DUTF-8%27%2720211009_194639.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWW3BF76PDCMGL24J%2F20220603%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220603T000429Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=60ae9ea0631ca2123f832093d9ac1d1a593a336fe37e4fc0bcffec546f555c8d)[0m
+Redirected to https://boz4.s3.sa-east-1.amazonaws.com/uclvbbamjcl58pitewpm04fi2g2z?response-content-disposition=inline%3B%20filename%3D%2220211009_194639.jpg%22%3B%20filename%2A%3DUTF-8%27%2720211009_194639.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWW3BF76PDCMGL24J%2F20220603%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220603T000429Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=60ae9ea0631ca2123f832093d9ac1d1a593a336fe37e4fc0bcffec546f555c8d
+Completed 302 Found in 96ms (ActiveRecord: 0.3ms | Allocations: 4175)
+
+
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f7a70d3b6ddf30ae961dd33b4c779cddb89cf8a6", "filename"=>"20211009_194729"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[36m  S3 Storage (12.0ms) [0m[34mGenerated URL for file at key: sw1dvj4eo4ptgakz0y9rs87mew8l (https://boz4.s3.sa-east-1.amazonaws.com/sw1dvj4eo4ptgakz0y9rs87mew8l?response-content-disposition=inline%3B%20filename%3D%2220211009_194729.jpg%22%3B%20filename%2A%3DUTF-8%27%2720211009_194729.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWW3BF76PDCMGL24J%2F20220603%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220603T000430Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=23ce67e55b5eff30e829bb17fe22443c71f8ddb8a8867f99013b0a87f17d0c65)[0m
+Redirected to https://boz4.s3.sa-east-1.amazonaws.com/sw1dvj4eo4ptgakz0y9rs87mew8l?response-content-disposition=inline%3B%20filename%3D%2220211009_194729.jpg%22%3B%20filename%2A%3DUTF-8%27%2720211009_194729.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWW3BF76PDCMGL24J%2F20220603%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220603T000430Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=23ce67e55b5eff30e829bb17fe22443c71f8ddb8a8867f99013b0a87f17d0c65
+Completed 302 Found in 41ms (ActiveRecord: 0.3ms | Allocations: 2703)
+
+
+Started GET "/products" for 127.0.0.1 at 2022-06-02 20:04:34 -0400
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Count (2.9ms)[0m  [1m[34mSELECT COUNT(DISTINCT "products"."id") FROM "products"[0m
+  ↳ app/views/products/index.html.erb:28
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT DISTINCT "products".* FROM "products" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:47
+  Rendered products/index.html.erb within layouts/application (Duration: 99.4ms | Allocations: 17720)
+  Rendered shared/_navbar2.html.erb (Duration: 0.4ms | Allocations: 170)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 25)
+  Rendered layout layouts/application.html.erb (Duration: 185.5ms | Allocations: 21475)
+Completed 200 OK in 244ms (Views: 183.5ms | ActiveRecord: 10.2ms | Allocations: 23413)
+
+
+Started GET "/products?q%5Bs%5D=name+asc" for 127.0.0.1 at 2022-06-02 20:04:38 -0400
+Started GET "/products?q%5Bs%5D=name+asc" for 127.0.0.1 at 2022-06-02 20:04:38 -0400
+Processing by ProductsController#index as HTML
+  Parameters: {"q"=>{"s"=>"name asc"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Count (0.6ms)[0m  [1m[34mSELECT COUNT(DISTINCT "products"."id") FROM "products"[0m
+  ↳ app/views/products/index.html.erb:28
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT DISTINCT "products".* FROM "products" ORDER BY "products"."name" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:47
+  Rendered products/index.html.erb within layouts/application (Duration: 44.9ms | Allocations: 18544)
+  Rendered shared/_navbar2.html.erb (Duration: 0.3ms | Allocations: 181)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 195.4ms | Allocations: 22424)
+Completed 200 OK in 233ms (Views: 196.8ms | ActiveRecord: 2.9ms | Allocations: 24542)
+
+
+Processing by ProductsController#index as HTML
+  Parameters: {"q"=>{"s"=>"name asc"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Count (0.4ms)[0m  [1m[34mSELECT COUNT(DISTINCT "products"."id") FROM "products"[0m
+  ↳ app/views/products/index.html.erb:28
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT DISTINCT "products".* FROM "products" ORDER BY "products"."name" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:47
+  Rendered products/index.html.erb within layouts/application (Duration: 32.5ms | Allocations: 18216)
+  Rendered shared/_navbar2.html.erb (Duration: 0.6ms | Allocations: 169)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered layout layouts/application.html.erb (Duration: 72.9ms | Allocations: 21849)
+Completed 200 OK in 103ms (Views: 73.5ms | ActiveRecord: 1.4ms | Allocations: 23744)
+
+
+Started GET "/products/46" for 127.0.0.1 at 2022-06-02 20:04:43 -0400
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:73:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Count (3.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 46], ["record_type", "Product"], ["name", "images"]]
+  ↳ app/views/products/_product.html.erb:7
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 46], ["record_type", "Product"], ["name", "images"]]
+  ↳ app/views/products/_product.html.erb:8
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/products/_product.html.erb:9
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/products/_product.html.erb:9
+  [1m[36mCategory Count (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories" WHERE "categories"."product_id" = $1[0m  [["product_id", 46]]
+  ↳ app/views/products/_product.html.erb:40
+  [1m[36mMFeature Count (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "m_features" WHERE "m_features"."product_id" = $1[0m  [["product_id", 46]]
+  ↳ app/views/products/_product.html.erb:48
+  Rendered products/_product.html.erb (Duration: 33.8ms | Allocations: 5408)
+  Rendered products/show.html.erb within layouts/application (Duration: 35.7ms | Allocations: 5827)
+  Rendered shared/_navbar2.html.erb (Duration: 0.2ms | Allocations: 168)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 24)
+  Rendered layout layouts/application.html.erb (Duration: 97.6ms | Allocations: 9458)
+Completed 200 OK in 127ms (Views: 89.6ms | ActiveRecord: 10.4ms | Allocations: 11824)
+
+
