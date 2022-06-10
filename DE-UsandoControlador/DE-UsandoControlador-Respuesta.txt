@@ -1,0 +1,5 @@
+### Respuestas: 
+Los test de controllers estan en `test/controllers/cars_controller_test.rb`
+Los fixtures estan en `test/fixtures/cars.yml`
+Los test de models estan en `test/models/car.rb`
+Los test de system estan en `test/system/cars_test.rb`

@@ -1,0 +1,46 @@
+
+<div id="<%= dom_id pethistory %>">
+
+  <div class="card text-center ">
+
+      <div class="card-header">
+        <div class="align-middle text-decoration-none text-center">
+           <%= link_to "#{pethistory.petname}", pet_path(pethistory.pet_id), class: "btn btn-large btn-light text-dark ", style:"font-weight:bold;font-size:30px;" %>
+        </div>
+        <div class="align-middle text-decoration-none text-center">
+            Dueño <%= link_to "#{pethistory.owner}", holder_path(pethistory.holder_id), class: "btn btn-large btn-light text-dark ", style:"font-weight:bold;font-size:20px;" %>
+        </div>
+        
+      </div>
+
+      <div class="card-body">
+
+        <div class="card-text">
+            <div>Fecha  <strong><%= l pethistory.created_at, format: "%d-%b-%Y" %> 
+                <%=l pethistory.created_at, format: "%H:%M" %> </strong></div>
+            <div>Peso  <strong><%= pethistory.weight %></strong></div>
+            <div>Altura  <strong><%= pethistory.height %></strong></div>
+            <div>Diagnostico  <strong><%= pethistory.description %></strong></div>
+        </div>
+
+      </div>
+
+      <div class="card-footer text-muted">
+        <div class="container px-4">
+          <div class="row gx-5">
+            <div class="col d-flex justify-content-around col-6">
+              <%= link_to "Volver a Mascotas", pets_path, class:"btn  btn-sm btn-small btn-outline-dark d-flex align-self-center justify-content-around col-6 "%> 
+            </div>
+            <div class="col d-flex justify-content-around col-6">
+              <%= link_to "Volver a Consultas", pethistories_path, class:"btn  btn-sm btn-small btn-outline-dark d-flex align-self-center justify-content-around col-6 "%> 
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  <div>
+  
+</div>
+
+
+

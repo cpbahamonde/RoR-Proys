@@ -1,0 +1,40 @@
+
+<div id="<%= dom_id pet %>">
+
+  <div class="card text-center m-3 ">
+
+    <div class="card-header">
+      <div class="align-middle text-decoration-none text-center">
+        <%= link_to "#{pet.name}", pet_path(pet), class: "btn btn-large btn-light text-dark ", style:"font-weight:bold;font-size:20px;" %>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="card-text">
+        <div >
+          <div class="align-middle text-decoration-none text-center">
+            Dueño<%= link_to "#{pet.owner}", holder_path(pet.holder_id), class: "btn btn-large btn-light text-dark ", style:"font-weight:bold;font-size:15px;" %>
+          </div>
+          <div>
+            Tipo  <strong><%= pet.typepet %></strong>
+          </div>
+          <div>
+            Raza  <strong><%= pet.race %></strong>
+          </div>
+          <div>
+            Fecha Nacimiento  <strong><%= l pet.birthdate, format: "%d-%b-%Y" %></strong>
+          </div>
+          <div>
+            Cantidad Consultas   : <strong><%= pet.q_appointments %></strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer text-muted">
+    </div>
+
+  </div>
+  
+</div>
+ <br>  

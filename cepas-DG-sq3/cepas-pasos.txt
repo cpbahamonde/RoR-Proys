@@ -1,0 +1,21 @@
+rails g scaffold Wine name score:integer
+rails g scaffold Strain name
+rails g scaffold WineStrain percentage:integer wine:references strain:references 
+rails g scaffold Oenologist name 
+rails g scaffold Magazine title
+rails g scaffold JobTitle job_title
+rails db:migrate
+
+ model wine
+class Wine < ApplicationRecord
+    has_many :wine_strains
+    has_many :strain, through: :wine_strains
+end
+
+model strain
+class Strain < ApplicationRecord
+    has_many :wine_strains
+    has_many :wines, through: :wine_strains
+end
+
+

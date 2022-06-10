@@ -1,0 +1,94 @@
+Usted quiere comprar su primera vivienda y dado que es un emprendedor digital exitoso, no puede acceder a los beneficios estatales, sino que optará por los tradicionales créditos hipotecarios de la banca. Usted es un cliente bancarizado hace años y ha tenido buen comportamiento de pago.
+Tiene ciertos ahorros, y le gustaría comprar un departamento en “verde” para tener tiempo de planificarse.
+Como usted ya tiene conocimientos básicos en Scrum, cree que es una buena oportunidad de ponerlos en práctica para llevar a cabo su “Proyecto Vivienda Propia”
+
+- Optará por los tradicionales créditos hipotecarios de la banca
+- cliente bancarizado hace años y ha tenido buen comportamiento de pago.
+- Tiene ciertos ahorros
+- Comprar un departamento en “verde” para tener tiempo de planificarse
+
+Product Backlog (Lista de Producto): El Product Backlog es la hoja de ruta del producto. Es una lista ordenada de misiones y objetivos (expresadas generalmente como Historias de Usuario) las cuales se encuentran priorizadas de acuerdo a su aporte de valor al negocio.
+
+
+############# Pregunta 1
+1.- Objetivo Principal : Comprar Su primera Vivienda
+
+2.- Backlog (Historias, Celulas, Miniproyecto, Sprint)
+    2.1.- Objetivo Particular  : Obtener Credito Hipotecario
+            - Cotizar en Instuciones Financieras
+            - Evaluar las cotizaciones
+                    - Monto del prestamo
+                    - Cantidad de meses
+                    - Valor total del Credito
+                    - Restricciones del prestamo
+            - Seleccionar la Institucion Financiera (Cotizaciones)        
+            - Entregar antecendentes (Documentos, segun solicitud).
+            
+    2.2.- Objetivo Particular  : Definir Presupesto total para la compra
+            - Cotizar proyectos en verde
+                - Zona, y orientacion
+                - Caracteristicas de la vivienda
+            - Evaluar las cotizaciones
+                - Valor del Proyecto, deacuerdo al Presupuesto
+                - Plazo de entrega
+                - Beneficios de la compra
+            - Seleccionar la Vivienda (en funcion del Presupuesto)
+            - Entregar antecendentes (Documentos, segun solicitud).
+    
+    2.3.- Objetivo Particular  : Firmar Contrato de Promesa de Compraventa Verde
+            - Revisar contrato, (validar las condines pactadas)
+            - Entregar el Dinero para la  promesa de CompraVenta
+            
+    2.4.- Objetivo Particular  : Revision de la Vivienda
+            - Revision de las condicones de la vivienda son deacuerdo a lo pactado, en el contrato.
+                
+    2.5.- Objetivo Particular  : Adquirir vivienda deacuerdo al presupuesto
+            - Inscripcion de titulo de Dominio
+            - Recepcion del titulo de dominio
+            - Entrega de llaves de la vivienda
+
+############# Pregunta 2
+    Product Owner : Amigo o familiar que sepa de Finazas o Vivendas (Si estas dispuesto a pagar, corredor de bienes raices.
+    Scrum Master  : Futuro dueño de la vivienda    
+    Equipo        : Familiares y amigos de la casa
+
+############ Pregunta 3
+ (1)   2.1.- Objetivo Particular  : Obtener Credito Hipotecario
+            - Cotizar en Instuciones Financieras
+            - Evaluar las cotizaciones
+                    - Monto del prestamo
+                    - Cantidad de meses
+                    - Valor total del Credito
+                    - Restricciones del prestamo
+            - Seleccionar la Institucion Financiera (Cotizaciones)        
+            - Entregar antecendentes (Documentos, segun solicitud).
+            
+ (1)   2.2.- Objetivo Particular  : Definir Presupesto total para la compra
+            - Cotizar proyectos en verde
+                - Zona, y orientacion
+                - Caracteristicas de la vivienda
+            - Evaluar las cotizaciones
+                - Valor del Proyecto, deacuerdo al Presupuesto
+                - Plazo de entrega
+                - Beneficios de la compra
+            - Seleccionar la Vivienda (en funcion del Presupuesto)
+            - Entregar antecendentes (Documentos, segun solicitud).
+    
+ (2)   2.3.- Objetivo Particular  : Firmar Contrato de Promesa de Compraventa Verde
+            - Revisar contrato, (validar las condines pactadas)
+            - Entregar el Dinero para la  promesa de CompraVenta
+            
+ (3)   2.4.- Objetivo Particular  : Revision de la Vivienda
+            - Revision de las condicones de la vivienda son deacuerdo a lo pactado, en el contrato.
+                
+ (4)   2.5.- Objetivo Particular  : Adquirir vivienda deacuerdo al presupuesto
+            - Inscripcion de titulo de Dominio
+            - Recepcion del titulo de dominio
+            - Entrega de llaves de la vivienda
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+<h1>Editar Concierto</h1>
+
+<%= render "form", concert: @concert %>
+
+<br>
+
+  <div class="d-flex flex-row  justify-content-around">
+    
+    <div>
+      <%= link_to "Cancelar", concerts_path, class:"btn btn-sm btn-outline-success text-center"%>
+    </div>
+
+    <div>
+        <%= button_to "Eliminar", concert_path(@concert), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Are you sure?" }, :html => { :method => :delete, :remote => true}, onclick: "return confirmDestroy('Seguro que desea eliminar el Concierto seleccionado?')"%>
+    </div>
+
+  </div>
+
+
+  <script>
+    function confirmDestroy(message) {
+      if (!confirm(message)) {
+        return false;
+      }
+    }
+  </script>

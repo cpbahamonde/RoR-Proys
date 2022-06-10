@@ -1,0 +1,24 @@
+
+<div id="<%= dom_id holder %>">
+
+  <div class="card text-center ">
+    <div class="card-header">
+      <div class="align-middle text-decoration-none text-center"><%= link_to "#{holder.name}", holder_path(holder), class: "btn btn-large btn-light text-dark ", style:"font-weight:bold;font-size:20px;" %></div>
+    </div>
+    <div class="card-body">
+      
+      <div class="card-text">
+
+        <div >
+          <div>Fono  <strong><%= holder.phone %></strong></div>
+          <div>Direccion  <strong><%= holder.address %></strong></div>
+          <div>Email <strong><%= holder.email %></strong></div>
+          <div>Cantidad Mascotas <strong><%= holder.q_pets %></strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+  </div>
+<br> 
+</div>
