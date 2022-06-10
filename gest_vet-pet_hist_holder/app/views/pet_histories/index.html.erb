@@ -1,0 +1,41 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Controles</h1>
+<%= link_to "Crear Control", new_pet_history_path %>
+<br>
+<br>
+<div id="pet_histories">
+ 
+    <table class="table table-light table-stripped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Dueño</th>
+          <th scope="col">Nombre mascota</th>
+          <th scope="col">Peso</th>
+          <th scope="col">Altura</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Control</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% numh = 1 %>
+        <% @pet_histories.each do |pet_history|%>
+          <tr>
+              <td><%= numh %></td>
+              <td><%= pet_history.holder %></td>
+              <td><%= pet_history.pet_name %></td>
+              <td><%= pet_history.weight %></td>
+              <td><%= pet_history.height %></td>
+              <td><%= pet_history.created_at %></td>
+              <td><%= pet_history.control %></td>
+              <td><%= link_to "Ver Control", pet_history_path(pet_history)%></td>   
+                
+          </tr>
+        <% end %>  
+      <tbody>
+    </table>
+</div>
+
+

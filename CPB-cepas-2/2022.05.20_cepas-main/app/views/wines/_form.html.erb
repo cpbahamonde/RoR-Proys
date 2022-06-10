@@ -1,0 +1,46 @@
+<%= form_with(model: wine) do |form| %>
+  <% if wine.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(wine.errors.count, "error") %> prohibited this wine from being saved:</h2>
+
+      <ul>
+        <% wine.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :score, style: "display: block" %>
+    <%= form.number_field :score %>
+  </div>
+ 
+  <div class="nested-fields">
+    <%= form.label :strains %>
+    <%= form.fields_for :wine_strains do |ff|%>
+      <%= render 'wine_strain_fields', f: ff%>
+    <% end %> 
+  </div>
+  
+  <div>
+    <%= link_to_add_association 'Añadir Cepa', form, :wine_strains %>
+  </div>
+<div class="nested-fields">
+    <%= form.label :oenologist %>
+    <%= form.fields_for :wine_oenologists do |ff|%>
+      <%= render 'wine_oenologist_fields', f: ff%>
+    <% end %> 
+  </div>
+  <div>
+    <%= link_to_add_association 'Añadir Puntaje', form, :wine_oenologists %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

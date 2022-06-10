@@ -1,0 +1,54 @@
+<div id="<%= dom_id pet %>">
+
+
+  <p>
+    <%= link_to "Controles", pethistories_path%>
+  </p>
+  
+  <p>
+    <strong>Dueño</strong>
+    <%= pet.owner %>
+  </p>
+
+  <p> 
+    <strong>Mascota</strong>
+    <%= pet.name %>
+  </p>
+
+  <p>
+    <strong>Raza</strong>
+    <%= pet.race %>
+  </p>
+
+  <p>
+    <strong>FechNac</strong>
+    <%= pet.birthdate %>
+  </p>
+  <p>
+    <strong> Controles </strong><%= pet.controls%>
+  </p>
+
+</div>
+<div>
+  <table class="table table-light table-stripped">
+    <thead>
+      <tr>
+        <th scope="col">Peso promedio</th>
+        <th scope="col">Peso maximo</th>
+        <th scope="col">Altura promedio</th>
+        <th scope="col">Altura maxima</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+          <td><%= pet.weight_avg %></td>
+          <td><%= pet.weight_max %></td>
+          <td><%= pet.height_avg %></td>
+          <td><%= pet.height_max %></td>
+            
+      </tr>
+    
+    <tbody>
+  </table>
+</div>

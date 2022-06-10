@@ -1,0 +1,262 @@
+- Crear nuevo proy
+$
+rails new gest-proy 
+
+- Modif Gemfiles
+ 
+	gem "tzinfo-data" #, platforms: %i[ mingw mswin x64_mingw jruby ]
+
+$
+cd gest-proy/
+bundle install
+<< rails new gest-proy --css=bootstrap --force >>
+
+- Modif Gemfiles
+ 
+	group :development, :test do
+	# Hirb provides a mini view framework for console applications and uses it to improve ripl(irb)'s default inspect output.Given an object or array of objects,
+	gem "hirb"
+
+$
+rails new gest-proy -d postgresql 
+
+- Modif config/application.rb
+	# [https://www.youtube.com/watch?v=guMn2NB4pMk]
+	# config.time_zone = "Central Time (US & Canada)"
+	config.time_zone = "America/Santiago"
+
+	# Rails Internationalization (I18n) - How to translate & localize your app [https://www.youtube.com/watch?v=lCyP8uKRqQo]
+	config.i18n.available_locales = [:en, :es]
+	config.i18n.default_locale = :es
+	config.i18n.fallbacks = true
+
+- Copy&Paste config/locales/es.yml
+- <<Copy&Paste config/webpacker.yml>>
+
+$ 
+cd gest-proy
+$ 
+bundle install
+
+- Modif /config/database.yml
+
+default: &default
+  adapter: postgresql
+  username: postgres
+  password: postgres
+  encoding: unicode
+
+production:
+  <<: *default
+  database: gest_proy_production
+  username: <%= ENV["GEST_PROY_DATABASE_USER"] %>
+  password: <%= ENV["GEST_PROY_DATABASE_PASSWORD"] %>
+
+$ 
+rails db:create
+	{pantallazo}
+	Created database 'gest_proy_development'
+	Created database 'gest_proy_test'
+
+- Crear controllers
+$ 
+rails g controller proys _nav-bar crear create hist index  
+	{pantallazo}
+      create  app/controllers/proys_controller.rb
+       route  get 'proys/index'
+              get 'proys/create'
+      invoke  erb
+      create    app/views/proys
+      create    app/views/proys/index.html.erb
+      create    app/views/proys/create.html.erb
+      invoke  test_unit
+      create    test/controllers/proys_controller_test.rb
+      invoke  helper
+      create    app/helpers/proys_helper.rb
+      invoke    test_unit
+
+
+- Verif archivos mostrados arriba
+	app/controllers/proys_controller.rb
+	app/views/layouts/application.html.erb
+
+	app/views/proys/create.html.erb
+	app/views/proys/index.html.erb
+
+- verif & modif rutas
+config/routes.rb
+  	get 'proys/index' to "proys#index"
+  	get 'proys/create'
+
+	- modif index
+	root "proys#index"
+
+- Crear modelo
+$ 
+rails g model proy nombre descrip fechini:timestamp fechfin:timestamp estado 
+	{pantallazo}
+	[WARNING] The model name 'proys' was recognized as a plural, using the singular 'proy' instead. Override with --force-plural or setup custom inflection rules for this noun before running the generator.
+      invoke  active_record
+      create    db/migrate/20220428060700_create_proys.rb
+      create    app/models/proy.rb
+      invoke    test_unit
+      create      test/models/proy_test.rb
+      create      test/fixtures/proys.yml
+
+- Verif exist archivo modelo mostrado arriba
+	app/models/proy.rb
+
+- Migrar(crear tablas) BD
+$ 
+rails db:migrate
+	{pantallazo}
+	== 20220428060700 CreateProys: migrating ======================================
+	-- create_table(:proys)
+	   -> 0.0165s
+	== 20220428060700 CreateProys: migrated (0.0168s) =============================
+
+- Verif archivo migrate mostrado arriba
+	db/migrate/20220428060700_create_proys.rb
+
+- verif Tabla creada en DB
+$ psql -U postgres 
+
+postgres=# 
+\l 			(muestra BD's)
+postgres=# 
+\c gest_proy_development 	(conecta BD)
+	{pantallazo}
+	Ahora está conectado a la base de datos «xxxx_development» con el usuario «postgres».
+
+gest_proy_development=# 
+\d   (muestra Tablas $ Relacs)
+
+gest_proy_development=# 
+\q    (salir)
+
+- Cambiar a español atributos(campos) del modelo,modif 
+config/locales/es.yml
+
+	es:
+  	activerecord:
+    	models:
+      	proy:  "Proyecto"
+    	attributes:
+      	proy:
+        	nombre:  "[NombreProy]"
+        	descrip:  "[DescrProy]"
+        	fechini:  "[FechIniProy]"
+        	fechfin:  "[FechFinProy]"
+        	estado:  "[EstadoProy]"
+
+-modif app/views/layout/application.html.erb
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GestProys</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", media: 'all' , "data-turbo-track": "reload" %>
+
+
+  </head>
+
+  <body>
+    <div class="container" align="center">
+
+    <%= render partial: 'nav-bar' %>  <!-- or code for navbar -->
+
+        <%= yield %>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+
+</html>
+
+================================
+heroku run rails db:migrate
+================================
+Asset `application.js` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link application.js
+
+and restart your server
+
+
+-Crear el Form
+views/proys/index.html.rb
+
+	def create
+		@post = Post.create(title: params[:title], image_url: params[:image_url], content: params[:content])
+	end
+============================================
+
+
+
+
+
+=====================================
+I want to have a date input for a form. I know this only works in some browsers:
+<input type="date" name="birth_day"/>
+***
+date_field("user", "born_on")
+# => <input id="user_born_on" name="user[born_on]" type="date" 
+***
+.text_field(type: 'date')
+
+=====================================
+how can I style the date format of a date_field?
+I got the following form:
+<%= form_for([@user, @vehicle]) do |f| %>
+    <%= f.label :name, "Vehicle name" %>
+    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.label :matriculation_date %>
+    <%= f.date_field :matriculation_date, class: 'form-control' %>
+    <%= f.submit "Add", class: "btn btn-primary" %>
+<% end %>
+this is rendering the following HTML for the date field:
+<input class="form-control" type="date" name="vehicle[matriculation_date]" id="vehicle_matriculation_date">
+**
+You can do:
+<%= f.date_field :matriculation_date, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %> 
+
+
+<%= f.date_select :Date_of_Birth, start_year: 1800, end_year: Time.now.year %>
+
+You can convert the date formate with strftime()
+
+@date.strftime("%d/%m/%Y")
+It will convert your date into dd/mm/yyyy formate as you wanted. Here I am showing you an example:
+
+t = Time.now
+=> 2016-04-28 16:09:42 -0700
+>> t.strftime("%d/%m/%Y")
+=> "28/04/2016"
+for more strftime() formatting options you can check this http://apidock.com/ruby/DateTime/strftime
+
+
+<%= f.date_field :matriculation_date, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %> 
+
+@date.strftime("%d/%m/%Y")
+t = Time.now
+=> 2016-04-28 16:09:42 -0700
+>> t.strftime("%d/%m/%Y")
+=> "28/04/2016"
+
+
+
+ 
+
+ 
+
+
+

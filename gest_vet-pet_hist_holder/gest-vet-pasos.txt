@@ -1,0 +1,34 @@
+rails new gest-vet -d postgresql
+bundle install
+
+rails g scaffold pet name race birthdate:date
+rails g scaffold pet_history weight:float height description:text
+rails g scaffold holder name phone address  email
+
+Models
+class Holder < ApplicationRecord
+    has_many :pets, dependent: :destroy
+
+    def pets
+        @pets = self.pets.count            
+    end 
+end
+
+pet.rb
+class Pet > ApplicationRecord
+ has_many :pet_histories, dependent: :destroy
+end
+
+pet_histories.rb
+class PetHistories > ApplicationRecord
+	belongs_to :pet
+end
+
+rails g migration AddHolderToPetHistory owner:references
+rails g migration AddHolderToPet holder:references
+rails g migration AddPetToPetHistory pet:references
+	
+rails db:create
+rails db:migrate
+
+controoler: pet_hist

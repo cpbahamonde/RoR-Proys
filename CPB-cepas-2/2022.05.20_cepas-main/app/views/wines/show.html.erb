@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @wine %>
+
+<div>
+  <%if current_user.admin?%>
+    <%= link_to "Edit this wine", edit_wine_path(@wine) %> |
+  <%end%>
+  <%= link_to "Back to wines", wines_path %>
+  <%if current_user.admin?%>
+    <%= button_to "Destroy this wine", @wine, method: :delete %>
+  <%end%>
+</div>

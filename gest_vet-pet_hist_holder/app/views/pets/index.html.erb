@@ -1,0 +1,41 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Mascotas</h1>
+
+<div id="pets">
+  <%= link_to "Crear Mascota", new_pet_path %>
+  <br>
+  <br>
+
+    <table class="table table-light table-stripped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Dueño</th>
+          <th scope="col">Mascota</th>
+          <th scope="col">Raza</th>
+          <th scope="col">FechNacimiento</th>
+          <th scope="col">Controles</th>
+          <th scope="col">Ver Mascota</th>
+        </tr>
+      </thead>
+        <tbody>
+            <%= numm = 1%>
+            <% @pets.each do |pet| %>
+              <tr>
+                  <td><%= numm %></td>
+                  <td><%= pet.name %></td>
+                  <td><%= pet.holder %></td>
+                  <td><%= pet.race %></td>
+                  <td><%= pet.birthdate %></td>
+                  <td><%= pet.controls %></td>
+                  <td><%= link_to "Mascota", pet_path(pet)%></td>  
+              </tr>
+                <%= link_to "Ver Mascota", pet %>
+                <%= numm += 1%>
+            <% end %>
+        <tbody>
+    </table>
+
+  
+</div>

@@ -1,0 +1,101 @@
+
+<div class="bg bg-secondary col-8 text-light">
+
+    <%= form_with model: @libro do |f| %>
+        <% if @libro.image_url != nil %>
+            <%= image_tag @libro.image_url %>
+        <% end %>
+        <div class="row mt-3">
+            <div class="col-6">
+                <%= f.label :title %>
+                <%= f.text_field :title, placeholder: "Ingresa Titulo", :required => true %>   
+            </div>
+
+            <div class="col-6">
+                <%= f.label :author %>
+                <%= f.text_field :author, placeholder: "Ingresa Autor", :required => true %>
+            </div>
+
+        </div>
+
+        <div class="row m-3">
+
+            <div class="col-6">
+                <%= f.label :descrip %>   
+                <%= f.select :descrip,Libro.descrips.keys %>
+            </div>
+
+            <div class="col-6">
+                <%= f.label :image_url %>
+                <%= f.url_field :image_url, placeholder: "URL Foto Portada", :required => true  %>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="col-6">
+
+                <%= f.label :status %>   
+                <%= f.select :status,Libro.statuses.keys %>
+            </div>
+            <%= content_tag :div do %> 
+                <%# <%= f.hidden_field :fechdevol, :include_blank => true %> 
+                <%= f.label :fechprestm %> 
+                <%= f.date_field :fechprestm, min: 30.days.ago, placeholder: "Ingr. fecha Prestamo", required:"true"%>
+
+                <div id="libro_fechdevol_div">
+                    <%= f.label :fechdevol %> 
+                    <%= f.date_field :fechdevol, min: 0.days.ago, placeholder: "Ingr. fecha Devoluc", required:"true" %>
+                    
+                 </div>
+            <% end %>
+         </div>
+
+        <hr class="my-auto flex-grow-3">
+
+        <nav class="navbar text-white justify-content-between mt-2 pt-2">
+            <%= link_to "Volver", :back, class: "btn btn-info"%> <%= f.submit "Guardar", class: "btn btn-success"%>
+        </nav>
+
+    <% end %>
+
+</div>
+
+
+
+<script>
+$(document).ready(function() {
+    $("#libro_status").change(function() {
+                if ($(this).val() == "Prestamo") {
+                    $('#libro_fechdevol_div').hide()
+                    $('#libro_fechdevol').prop('required:',"false");
+                    $('#libro_fechdevol').prop('disabled', 'disabled');
+
+                } else {
+                    $('#libro_fechdevol_div').show()
+                    $('#libro_fechdevol').prop('required:',"true");
+                    $('#libro_fechdevol').prop('disabled', '');
+
+                    
+                }
+            });
+            $("#libro_status").trigger("change");
+});
+</script>
+
+
+<!--
+
+                   // $('#libro_fechdevol_div').hide();
+                    // $('#libro_fechdevol').prop("required", false)
+                   // $('#libro_fechdevol').removeAttr("required", false)
+
+                    // $('#libro_fechdevol').removeAttr("required"); 
+                    //$('#libro_fechdevol').prop('required', '');
+                    //$('#libro_fechdevol').prop('required',false);
+
+                    // $('#libro_fechdevol_div').show()
+                    // $('#libro_fechdevol').prop("required", true)
+                    
+                    //$('#libro_fechdevol').attr("required");
+                    //$('#libro_fechdevol').prop('required:',"required");
+                    //$('#libro_fechdevol').prop('required',true);

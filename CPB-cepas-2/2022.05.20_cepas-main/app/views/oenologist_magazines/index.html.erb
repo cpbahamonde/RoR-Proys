@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Oenologist magazines</h1>
+
+<div id="oenologist_magazines">
+  <% @oenologist_magazines.each do |oenologist_magazine| %>
+    <%= render oenologist_magazine %>
+    <p>
+      <%= link_to "Show this oenologist magazine", oenologist_magazine %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New oenologist magazine", new_oenologist_magazine_path %>

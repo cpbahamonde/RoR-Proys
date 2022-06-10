@@ -1,0 +1,25 @@
+<div id="<%= dom_id oenologist %>">
+  <p>
+    <strong>Name:</strong>
+    <%= oenologist.name %>
+  </p>
+  <p>
+    <strong>Age:</strong>
+    <%= oenologist.age %>
+  </p>
+  <p>
+    <strong>Nationality:</strong>
+    <%= oenologist.nationality %>
+  </p>
+  <%if oenologist.oenologist_magazines.count>0%>
+    <p>
+    <strong>Magazines: </strong>
+      <% oenologist.oenologist_magazines.each do |m|%>
+        <ul>
+          <li class="mx-5"><%= m.magazine.title%></li>
+          <li class="mx-5"><%= m.job%></li>
+        </ul>
+      <%end%>
+    </p>  
+  <%end%>
+</div>

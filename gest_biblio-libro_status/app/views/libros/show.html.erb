@@ -1,0 +1,41 @@
+
+    <div class="card bg bg-secondary text-light">
+        
+        <div class="card-body ">
+
+            <h4 class="card-title"><%= @libro.title%></h4>
+            <br>
+            <%= image_tag @libro.image_url%>
+            <br><br>
+            <h5 class="card-title"><%= @libro.author%></h5>
+            <p class="card-title"><%= @libro.descrip%></p>
+            <br>
+            <% if @libro.status  == "Prestamo"  %>
+                    <p class="card-title">Aun no ha sido devuelto</p>
+                    <p class="card-title">Prestado hace ya <%= time_ago_in_words(@libro.fechprestm)%>, desde el <%= localize @libro.fechprestm, format: "%d-%b-%Y" %></p>
+                <br>
+                <% elsif %>
+                    <p class="card-title">Prestado el <%= localize @libro.fechprestm, format: "%d-%b-%Y"%> y devuelto el <%= localize @libro.fechdevol, format: "%d-%b-%Y" %></p>
+                    <p class="card-title">Se encuentra en <%= @libro.status %> hace <%= time_ago_in_words(@libro.fechdevol)%></p>
+                <br>
+            <% end %>
+
+            <hr class="my-auto flex-grow-1">
+
+            <nav class="navbar text-white justify-content-between mt-2 pt-2">
+                <%= link_to "Volver", root_path, class: "btn btn-info"%>
+                <%= link_to "Editar", libro_edit_path(@libro), class: "btn btn-dark"%>
+                <%= button_to "Eliminar", @libro, method: :delete, onclick: "return confirmDestroy('Seguro que desea eliminar el Libro seleccionado?')", class: "btn btn-danger btn-sm"  %>
+            </nav>
+        </div>
+    </div>
+
+
+
+<script>
+function confirmDestroy(message) {
+  if (!confirm(message)) {
+    return false;
+  }
+}
+</script>

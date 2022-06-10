@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Wine oenologists</h1>
+
+<div id="wine_oenologists">
+  <% @wine_oenologists.each do |wine_oenologist| %>
+    <%= render wine_oenologist %>
+    <p>
+      <%= link_to "Show this wine oenologist", wine_oenologist %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New wine oenologist", new_wine_oenologist_path %>

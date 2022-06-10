@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Dueños</h1>
+<%= link_to "Crear Dueño", new_holder_path %>
+<br>
+<br>
+
+<div id="holders">
+<table class="table table-light table-stripped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Fono</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">eMail</th>
+      <th scope="col">Mascotas</th>
+      <th scope="col">Ficha Dueño</th>
+    </tr>
+  </thead>
+  <tbody>
+        <% numh = 1 %>
+    <% @holders.each do |holder|%>
+    <tr>
+        <td><%= numh %></td>
+
+        
+        <td><%= link_to "Dueño", holder_path(holder)%></td>   
+    </tr>
+    <% numh += 1 %>
+    <% end %>  
+  <tbody>
+</table>
+</div>
+

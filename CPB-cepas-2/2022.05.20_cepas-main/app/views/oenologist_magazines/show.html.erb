@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @oenologist_magazine %>
+
+<div>
+  <%= link_to "Edit this oenologist magazine", edit_oenologist_magazine_path(@oenologist_magazine) %> |
+  <%= link_to "Back to oenologist magazines", oenologist_magazines_path %>
+
+  <%= button_to "Destroy this oenologist magazine", @oenologist_magazine, method: :delete %>
+</div>

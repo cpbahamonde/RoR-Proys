@@ -1,0 +1,16 @@
+<div class="nested-fields">
+     
+    <div>
+        <%= f.label :magazine %>
+        <%= f.collection_select :magazine_id, @magazines, :id, :title %>
+    </div>
+
+    <div>
+        <%= f.label :job %>
+        <%= f.select :job, ["Editor", "Writer", "Reviewer"] %>
+    </div>
+
+    <div>
+        <%= link_to_remove_association 'Remover Trabajo', f%>
+    </div>
+</div>

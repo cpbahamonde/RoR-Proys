@@ -1,0 +1,62 @@
+rails g model crew name group:references
+
+has_many :crews, dependent: :destroy
+
+ gem 'cocoon'
+ gem 'jquery-rails'
+
+bundle
+
+./bin/importmap pin @nathanvda/cocoon
+
+
+modif file app/assets/javascript/application.js
+import "@hotwired/turbo-rails"
+import "controllers"
+import "@nathanvda/cocoon"
+
+
+model/groups
+accepts_nested_attributes_for :crews, reject_if: :all_blank, allow_destroy: true
+
+belongs_to :project
+
+
+form group
+        <div>
+            <% form.fields_for :crews do |ff| %>
+            <% render "crew_fields", f => ff %>
+        </div>
+        <div>
+          <%= link_to_add_association "Add Member", form, :crews %>
+        </div>
+
+_crew_fields.html.erb
+        <div>
+          <%= f.label :name, style: "display: block" %>
+          <%= f.text_field :name %>
+        </div>
+
+controllers/group
+new y edit 
+	@group.crews.build
+strong_params
+	      params.require(:group).permit(:name, :crew, :debut_date, :group_type, crews_attributes: [:name, :group_id])
+
+
+
+
+
+
+
+
+
+
+
+
+rails generate active_admin:resource user
+
+
+
+
+

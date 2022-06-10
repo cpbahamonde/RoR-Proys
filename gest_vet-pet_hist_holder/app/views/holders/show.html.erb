@@ -1,0 +1,44 @@
+<p style="color: green"><%= notice %></p>
+
+<div>
+  <%= link_to "Editar Dueño", edit_holder_path(@holder) %> |
+  <%= link_to "Volver a Dueños", holders_path %>  
+</div>
+<br>
+<%= button_to "Eliminar Dueño", @holder, method: :delete %>
+<br>
+<%= render @holder %>
+<br>
+<table class="table table-light table-stripped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Mascota</th>
+      <th scope="col">FechNacimiento</th>
+      <th scope="col">Controles</th>
+      <th scope="col">Altura Maxima</th>
+      <th scope="col">Peso Maximo</th>
+      <th scope="col">Altura Promedio</th>
+      <th scope="col">Peso Promedio</th>
+      <th scope="col">Control(es) Mascota</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% numm = 1%>
+    <% @holder.pets.each do |pet|%>
+    <tr>
+        <td><%= numm %></td>
+        <td><%= pet.name %></td>
+        <td><%= pet.birthdate %></td>
+        <td><%= pet.controls %></td>
+        <td><%= pet.weight_max %></td>
+        <td><%= pet.height_max%></td>
+        <td><%= pet.weight_avg %></td>
+        <td><%= pet.height_avg%></td>
+        <td><%= link_to "Mascota", pet_path(pet)%></td>   
+    </tr>
+    <% numm += 1%>
+    <% end %>  
+  <tbody>
+</table>
+

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @wine_oenologist %>
+
+<div>
+  <%= link_to "Edit this wine oenologist", edit_wine_oenologist_path(@wine_oenologist) %> |
+  <%= link_to "Back to wine oenologists", wine_oenologists_path %>
+
+  <%= button_to "Destroy this wine oenologist", @wine_oenologist, method: :delete %>
+</div>

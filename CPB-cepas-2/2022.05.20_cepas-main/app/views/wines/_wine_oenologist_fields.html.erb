@@ -1,0 +1,14 @@
+<div class="nested-fields">
+    <div>
+        <%= f.label :oenologist %>
+        <%= f.collection_select :oenologist_id, @eonologists, :id, :name %>
+    </div>
+    <div>
+        <%= f.label :score %>
+        <%= f.number_field :score %>
+    </div>
+
+    <div>
+        <%= link_to_remove_association 'Remover Puntaje', f%>
+    </div>
+</div>

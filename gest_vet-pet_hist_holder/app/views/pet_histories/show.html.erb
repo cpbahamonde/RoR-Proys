@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @pet_history %>
+
+<div>
+  <%= link_to "Editar Control", edit_pet_history_path(@pet_history) %> |
+  <%= link_to "Volver a Controles", pet_histories_path %>
+
+  <%= button_to "Eliminar Control", @pet_history, method: :delete %>
+</div>
