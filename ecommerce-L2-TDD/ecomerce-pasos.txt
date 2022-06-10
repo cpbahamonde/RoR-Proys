@@ -1,0 +1,311 @@
+rails new ecommerce -d postgresql
+Modif Gemfile
+bundle
+Modif config/database.yml
+
+
+rails g scaffold Category name 
+rails db:create
+rails db:migrate
+rails g scaffold Product name description:text stock:integer price:decimal sku 
+rails db:migrate
+psql -U postgres
+\c ecommerce_development
+\l	(db's)
+\d (tablas)
+\d products (tabla especifica)
+\d categories
+rails g migration CreateJoinTable product category
+descomentar en el archivo de migracion (xq necesitamos los indices)
+       t.index [:product_id, :category_id]
+       t.index [:category_id, :product_id]
+rails db:migrate
+
+en PSQL 
+\d categories_products
+
+add en models/product
+has_and_belongs_to_many :categories
+
+add en models/category
+has_and_belongs_to_many :products
+
+rev en browser
+http://127.0.0.1:3000/products/new
+
+
+Editaremos la vista _form.html.erb de los productos
+
+  <div class="field">
+    <%= form.label :categories %>
+      <%= form.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+        <%= b.label class:"label-checkbox" do%>
+        <%=b.check_box + b.text%>
+      <%end%>
+    <% end %>
+  </div>
+
+
+Editaremos el controlador de productos y el método product_params ("{category_ids: []}") quedará como sigue:
+#app/controllers/products_controller.rb
+...
+params.require(:product).permit(:name, :description, :stock,:price, :sku, {category_ids: []}) 
+
+mkdir db/seeds
+
+#db/seeds/categories.rb
+Category.create(name: "Smartphones")
+Category.create(name: "Shoes")
+Category.create(name: "Accesories")
+
+#db/seeds/products.rb
+category_1 = Category.find_by(name: "Smartphones")
+
+    p_01 = Product.create(name: "iPhone XS", description: "Super retina screen", stock: 10, price: 900, sku: "AIX0120")
+    p_01.categories << category_1
+
+    p_02 = Product.create(name: "Xiaomi Mi Mix 3", description: "Borderless, powerful, super camera", stock: 12, price: 400, sku: "XMM0312")
+    p_02.categories << category_1
+
+    p_03 = Product.create(name: "Xiaomi Pocophone", description: "The best phone for millenials", stock: 15, price: 300, sku: "XPP0313")
+    p_03.categories << category_1
+
+    p_04 = Product.create(name: "Samsung S10", description: "Beautiful, elegant, powerful phone", stock: 10, price: 900, sku: "S100901")
+    p_04.categories << category_1
+
+category_2 = Category.find_by(name: "Shoes")
+
+    p_05 = Product.create(name: "Zico Beach Sandal", description: "The best sandal ever", stock: 50, price: 5, sku: "ZSD009")
+    p_05.categories << category_2
+
+    p_06 = Product.create(name: "Adidas Superstart", description: "The old school sneakers", stock: 13, price: 60, sku: "ASS090")
+    p_06.categories << category_2
+
+    p_07 = Product.create(name: "Timberland Premium", description: "The classic yellow boots", stock: 15, price: 100, sku: "TPB132")
+    p_07.categories << category_2
+
+    category_3 = Category.find_by(name: "Accesories")
+    p_08 = Product.create(name: "Men Wallet", description: "Waterproof leather wallet", stock: 50, price: 20, sku: "MW2323")
+    p_08.categories << category_3
+
+    p_09 = Product.create(name: "Keychain", description: "Keep your keys together. Safe.", stock: 60, price: 2, sku: "KC3245")
+    p_09.categories << category_3
+
+    p_10 = Product.create(name: "Casio L12 Watch", description: "Never be late again, arrive on time", stock: 8, price: 50, sku: "CW7788")
+    p_10.categories << category_3
+
+
+Editaremos nuestro archivo seeds.rb y agregaremos la siguiente línea de código:
+Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each { |seed| load seed }
+
+rails db:seed
+
+
+
+========================================
+Installing devise
+
+Add to Gemfile gem 'devise' 
+bundle install devise
+rails g devise:install 
+
+  1. in config/environments/development.rb:
+      config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  2. Ensure you have defined root_url to *something* in your config/routes.rb.
+     For example:
+
+       root to: "home#index"
+
+  3. Ensure you have flash messages in app/views/layouts/application.html.erb.
+     For example:
+
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+generando el modelo que usaremos para autenticar los “admin”
+Lo siguiente será generar la base para los administradores, corremos el comando rails g devise Admin
+db:migrate
+
+Nuestro archivo de rutas quedará como sigue:
+Rails.application.routes.draw do
+  devise_for :admins
+  authenticate :admin do
+    resources :products
+    resources :categories
+  end
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Defines the root path route ("/")
+  root "home#index"
+end
+
+
+generando el modelo que usaremos para autenticar los “user”
+rails g devise User
+rails db:migrate
+
+Crearemos el modelo Order de la siguiente manera:
+rails g model Order user:references number total:decimal state
+rails db:migrate
+
+Tests
+Editaremos los archivos test/fixtures/users.yml y test/fixtures/admin.yml y luego,
+agregamos un par de líneas, de manera que quede solo el siguiente contenido:
+#test/fixtures/users.yml
+one:
+	email: first_user@example.com
+two:
+	email: second_user@example.com
+
+bundle add ffi
+rails test test/models/order_test.rb
+
+rails db:migrate RAILS_ENV=test
+
+
+#app/models/order.rb
+class Order < ApplicationRecord
+  before_create -> { generate_number(hash_size) }
+  belongs_to :user
+
+  def generate_number(size)
+    self.number ||= loop do
+      random = random_candidate(size)
+      break random unless self.class.exists?(number: random)
+    end
+  end
+  
+  def random_candidate(size)
+    "#{hash_prefix}#{Array.new(size){rand(size)}.join}"
+  end
+
+  def hash_prefix
+    "BO"
+  end
+
+  def hash_size
+    9
+  end
+
+end
+
+
+#test/models/order_test.rb
+class OrderTest < ActiveSupport::TestCase
+
+	test 'creates a random number on create' do
+		user = User.create(email: "user@example.com", password: "12345678")
+		order = Order.create(user_id: user.id)
+		assert !order.number.nil?
+	end
+
+	test 'number must be unique' do
+		user = User.create(email: "user@example.com", password: "12345678")
+		order = Order.create(user_id: user.id)
+		duplicated_order = order.dup
+		assert_not duplicated_order.valid?
+	end
+end
+
+====================
+
+crear el modelo OrderItem. Recordemos que esta es una relación N a N entre
+Product y Order. El primer paso será crear la migración:
+$ rails g migration CreateOrderItem order:references product:references quantity:integer price:decimal
+$ rails db:migrate
+
+
+#app/models/product.rb
+class Product < ApplicationRecord
+    has_and_belongs_to_many :categories
+    has_many :order_items
+    has_many :orders, through: :order_items
+end
+
+#app/models/order.rb
+class Order < ApplicationRecord
+before_create -> { generate_number(hash_size) }
+belongs_to :user
+has_many :order_items
+has_many :products, through: :order_items
+validates :number, uniqueness: true
+...
+end
+
+
+#app/models/order_item.rb
+class OrderItem < ApplicationRecord
+belongs_to :product
+belongs_to :order
+end
+
+
+Agregando productos al carro
+
+#app/controllers/home_controller.rb
+class HomeController < ApplicationController
+	def index
+		@products = Product.all
+	end
+end
+
+<!-- app/views/home/index.html.erb -->
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <div class="container">
+                <div class="row">
+                    <% @products.each do |product| %>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img class="card-img-top" src="https://dummyimage.com/600x400/c7c7c7/737373&text=image" alt="<%= product.nam e%>"/>
+                                <div class="card-block">
+                                    <h5 class="card-title"><%= product.name %></h5>
+                                    <div class="card-text">
+                                        <div class="badge badge-primary">
+                                            <%= product.categories.first.name %>
+                                        </div>
+                                        <div>
+                                            $<%= product.price %>
+                                        </div>
+                                    </div>
+                                    <div class="row float-right">
+                                        <div class="col-md-12">
+                                            <button class="btn btn-primary btn-sm">Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+$rails test test/models/order_test.rb
+
+#test/models/order_test.rb
+class OrderTest < ActiveSupport::TestCase
+#...
+	test 'add product as order_items' do
+	user = User.create(email: "user@example.com", password: "12345678")
+		order = Order.create(user_id: user.id)
+		product = Product.create(name: "test", price: 1, stock: 10, sku:"001")
+		order.add_product(product.id, 1)
+		assert_equal order.order_items.count, 1
+	end
+end
+
+
+
+#app/models/order.rb
+  def add_product(product_id, quantity)
+    product = Product.find(product_id)
+    if product
+      order_items.create(product_id: product.id, quantity: quantity, price: product.price)
+    end
+  end
